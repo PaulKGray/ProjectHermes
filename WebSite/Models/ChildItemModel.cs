@@ -14,7 +14,7 @@ namespace ProjectHermes.Models
     [DisplayName("Child Item Name")]
 		public string Name { get; set; }
 
-		public ParentItemModel ParentItem { get; set; }
+		public OrganisationModel Organisation { get; set; }
 
 
 	}

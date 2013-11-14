@@ -27,7 +27,7 @@ namespace ProjectHermes.Services.Registrations
             var fluentConfig = Fluently.Configure()
               .Database(MsSqlConfiguration.MsSql2008.DoNot.UseReflectionOptimizer()
 							.ConnectionString(c => c.FromConnectionStringWithKey("ProjectHermesConn")))
-							.Mappings(m => m.FluentMappings.AddFromAssemblyOf<ParentItemMap>())
+							.Mappings(m => m.FluentMappings.AddFromAssemblyOf<OrganisationMap>())
               .ExposeConfiguration(x => x.SetProperty("current_session_context_class", "web"))
               .ExposeConfiguration(BuildSchema);
 

@@ -7,49 +7,49 @@ using ProjectHermes.Models;
 
 namespace ProjectHermes.Helpers.Converters
 {
-    public class ParentItemConverter
+    public class OrganisationConverter
     {
         /// <summary>
         /// Convert a list of parent items to parent item models
         /// </summary>
-        /// <param name="parentItems">the list of parent items to convert</param>
+        /// <param name="Organisations">the list of parent items to convert</param>
         /// <returns>The list of parent item models</returns>
-        public IList<ParentItemModel> convertParentItemDomainObject(IList<ParentItem> parentItems) {
-            var parentItemModels = new List<ParentItemModel>();
+        public IList<OrganisationModel> convertOrganisationDomainObject(IList<Organisation> Organisations) {
+            var OrganisationModels = new List<OrganisationModel>();
 
-            foreach (var parentItem in parentItems)
+            foreach (var Organisation in Organisations)
             {
-                parentItemModels.Add(convertParentItemDomainObject(parentItem));
+                OrganisationModels.Add(convertOrganisationDomainObject(Organisation));
             }
 
-            return parentItemModels;
+            return OrganisationModels;
         }
 
         /// <summary>
         /// Convert a parent item to a patent item model
         /// </summary>
-        /// <param name="parentItem">The parent item to convert</param>
+        /// <param name="Organisation">The parent item to convert</param>
         /// <returns>The parent item model</returns>
-        public ParentItemModel convertParentItemDomainObject(ParentItem parentItem)
+        public OrganisationModel convertOrganisationDomainObject(Organisation Organisation)
         {
 
-            var parentItemModel = new ParentItemModel();
-            parentItemModel.ParentItemid = parentItem.ParentItemid;
-            parentItemModel.Name = parentItem.Name;
-            parentItemModel.Description = parentItem.Description;
+            var OrganisationModel = new OrganisationModel();
+            OrganisationModel.Organisationid = Organisation.Organisationid;
+            OrganisationModel.Name = Organisation.Name;
+            OrganisationModel.Description = Organisation.Description;
 
-            foreach (var childItem in parentItem.ChildItems)
+            foreach (var childItem in Organisation.ChildItems)
             {
 
                 var newChildItem = new ChildItemModel();
                 newChildItem.ChildItemId = childItem.ChildItemId;
                 newChildItem.Name = childItem.Name;
 
-                parentItemModel.ChildItems.Add(newChildItem);
+                OrganisationModel.ChildItems.Add(newChildItem);
 
             }
 
-            return parentItemModel;
+            return OrganisationModel;
 
         }
     }

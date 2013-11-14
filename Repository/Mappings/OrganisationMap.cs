@@ -8,12 +8,12 @@ using FluentNHibernate.Mapping;
 
 namespace ProjectHermes.Repository.Mappings
 {
-    public class ParentItemMap : ClassMap<ParentItem>
+    public class OrganisationMap : ClassMap<Organisation>
     {
-        public ParentItemMap()
+        public OrganisationMap()
         {
-            Table("ParentItem");
-            Id(x => x.ParentItemid);
+            Table("Organisation");
+            Id(x => x.Organisationid);
 			Map(x => x.Name);
             Map(x => x.Description);
             HasMany(x => x.ChildItems).Cascade.All().KeyColumns.Add("Parent_Id");

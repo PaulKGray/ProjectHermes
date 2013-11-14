@@ -192,7 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActionFilters\TransactionAttribute.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\API\ParentAPIController.cs" />
+    <Compile Include="Controllers\API\OrganisationAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Mailers\ForgotPasswordMailer.cs" />
     <Compile Include="Controllers\Mailers\IForgotPasswordMailer.cs" />
@@ -212,7 +212,7 @@
     <Compile Include="Models\ChildItemModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
-    <Compile Include="Models\ParentItemModel.cs" />
+    <Compile Include="Models\OrganisationModel.cs" />
     <Compile Include="Models\Account\SetUpSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -384,7 +384,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>52308</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:55539/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

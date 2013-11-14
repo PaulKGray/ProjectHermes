@@ -22,21 +22,21 @@
     
  <section class="ArticleSection">
 	
-	@for (var i = 0; i < Model.ParentItems.Count(); i++)
+	@for (var i = 0; i < Model.Organisations.Count(); i++)
     {
 
      
        <article class="standardarticle" >    
 				 <header>
-					 @Model.ParentItems[i].Name
+					 @Model.Organisations[i].Name
 				 </header>
                 <div class="content">
-					@Model.ParentItems[i].Description
+					@Model.Organisations[i].Description
 
-                    @if (Model.ParentItems[i].ChildItems.Count() > 0) { 
+                    @if (Model.Organisations[i].ChildItems.Count() > 0) { 
                     
                     <ul>
-                    @foreach (var item in @Model.ParentItems[i].ChildItems)
+                    @foreach (var item in @Model.Organisations[i].ChildItems)
                     {
                       <li> @item.Name </li>
                     }
@@ -48,7 +48,7 @@
    
                 </div>
 				 <footer>
-					@Html.ActionLink("View Item","Details", new { ID = Model.ParentItems[0].ParentItemid}, null)
+					@Html.ActionLink("View Item","Details", new { ID = Model.Organisations[0].Organisationid}, null)
 				 </footer>
        </article> 
        

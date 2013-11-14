@@ -1,4 +1,4 @@
-﻿@model ProjectHermes.Models.ParentItemModel
+﻿@model ProjectHermes.Models.OrganisationModel
 @{
     ViewBag.Title = "EditStandardItem";
 }
@@ -8,12 +8,12 @@
 </p>
 
 
-@using (Html.BeginForm("EditParentItem", "Admin", FormMethod.Post))
+@using (Html.BeginForm("EditOrganisation", "Admin", FormMethod.Post))
 {
     
     @Html.ValidationSummary();
 
-    @Html.HiddenFor(x => x.ParentItemid);
+    @Html.HiddenFor(x => x.Organisationid);
     
     @Html.LabelFor(x => x.Name);
     @Html.TextBoxFor(x => x.Name);
@@ -23,7 +23,7 @@
       
     <div class="control">
         <input type="submit" value="Edit Item" />
-        @Html.ActionLink("Delete", "DeleteParentItem", new { ID=Model.ParentItemid })
+        @Html.ActionLink("Delete", "DeleteOrganisation", new { ID=Model.Organisationid })
         @Html.ActionLink("Cancel", "Index")
     </div>
    

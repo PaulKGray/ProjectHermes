@@ -48,11 +48,11 @@
     <Content Include="app\controllers\home.js" />
     <Content Include="app\controllers\login.js" />
     <Content Include="app\directives.js" />
-    <Content Include="app\services\parentService.js" />
+    <Content Include="app\services\OrganisationService.js" />
     <Content Include="partials\about.html" />
     <Content Include="partials\contact.html" />
     <Content Include="partials\home.html" />
-    <Content Include="partials\parentItem\details.html" />
+    <Content Include="partials\organisation\details.html" />
     <Content Include="index.html" />
     <Content Include="partials\login.html" />
     <Content Include="scripts\angular-bootstrap-prettify.js" />

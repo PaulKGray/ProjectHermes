@@ -9,11 +9,11 @@
     Manage the items on your site. 
 </p>
 
-@Html.ActionLink("Add Parent Item", "CreateParentItem", "Admin")
+@Html.ActionLink("Add Parent Item", "CreateOrganisation", "Admin")
 
 @TempData["Message"] 
 
-@{ if (Model.ParentItems.Count == 0)
+@{ if (Model.Organisations.Count == 0)
 	 { 
        
        <h2>Sorry No Items Available</h2>
@@ -33,7 +33,7 @@
 
 				</thead>
 
-	@foreach (var item in Model.ParentItems)
+	@foreach (var item in Model.Organisations)
     {        
 					<tr>		
 						<td class="title"> 
@@ -67,7 +67,7 @@
 
 						</td>
 						<td>
-            @Html.ActionLink("Edit", "EditParentItem", "Admin", new { ID=item.ParentItemid }, null)
+            @Html.ActionLink("Edit", "EditOrganisation", "Admin", new { ID=item.Organisationid }, null)
 						</td>
      
          	 </tr>	

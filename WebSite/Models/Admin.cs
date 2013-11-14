@@ -9,18 +9,18 @@ namespace ProjectHermes.Models
     public class AdminModel
     {
 
-		public IList<ParentItemModel> ParentItems;
+		public IList<OrganisationModel> Organisations;
 
         public AdminModel()
         {
-			ParentItems = new List<ParentItemModel>();
+			Organisations = new List<OrganisationModel>();
         }
 
     }
 
     public class AdminCreateModel {
 
-        public ParentItemModel Parent { get; set; }
+        public OrganisationModel Organisation { get; set; }
         public IList<ChildItemModel> ChildItems { get; set; }
 
         public AdminCreateModel()

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectHermes.Domain
 {
-	public class ParentItem : DomainBase
+	public class Organisation : DomainBase
     {
-        public virtual int ParentItemid { get; set; }
+        public virtual int Organisationid { get; set; }
 
 		public virtual string Name { get; set; }
 
@@ -16,12 +16,12 @@ namespace ProjectHermes.Domain
 
         public virtual IList<ChildItem> ChildItems { get; set; }
 
-        protected ParentItem()
+        protected Organisation()
         {
 
         }
 
-        public ParentItem(string name)
+        public Organisation(string name)
         {
             this.Name = name;
             ChildItems = new List<ChildItem>();

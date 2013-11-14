@@ -13,9 +13,6 @@ select,
 textarea {
   color: #222;
 }
-.content-wrapper {
-  background-color: #fff;
-}
 body {
   font-size: 1em;
   line-height: 1.4;
@@ -126,6 +123,7 @@ footer {
   min-height: 100%;
   margin-bottom: -142px;
   box-sizing: border-box;
+  background-color: #fff;
 }
 #body:after {
   content: "";
@@ -166,6 +164,7 @@ footer {
 }
 section {
   display: block;
+  padding: 10px;
 }
 article {
   -moz-transition: all 0.3s ease;
@@ -282,7 +281,7 @@ input[type=button] {
   width: 100%;
   margin-top: 40px;
   line-height: 35px;
-  color: #333333;
+  color: #fafffc;
   -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
@@ -305,14 +304,12 @@ input[type=submit]:hover,
 input[type=submit]:focus,
 input[type=button]:focus,
 input[type=button]:hover {
-  color: #333333;
   text-decoration: none;
   background-color: #000000;
   -webkit-transition: background-position 0.1s linear;
   -moz-transition: background-position 0.1s linear;
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
-  border-bottom: solid 5px #000;
   -webkit-transition: background-color 250ms linear, box-shadow 250ms;
   -moz-transition: background-color 250ms linear, box-shadow 250ms;
   -o-transition: background-color 250ms linear, box-shadow 250ms;

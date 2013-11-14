@@ -15,12 +15,12 @@ namespace ProjectHermes.Controllers
 		//
 		// GET: /Admin/
 
-		private IParentItemService _ParentItemService;
+		private IOrganisationService _OrganisationService;
 		private IChildItemService _ChildItemService;
 
-		public AdminController(IParentItemService parentItemService, IChildItemService childItemService)
+		public AdminController(IOrganisationService organisationService, IChildItemService childItemService)
 		{
-			_ParentItemService = parentItemService;
+			_OrganisationService = organisationService;
 			_ChildItemService = childItemService;
 		}
 
@@ -38,31 +38,31 @@ namespace ProjectHermes.Controllers
 		{
 			var adminModel = new AdminModel();
 
-			var parentitems = _ParentItemService.GetAllParentItem();
-			IList<ParentItemModel> parentModelItems = new List<ParentItemModel>();
+			var organisations = _OrganisationService.GetAllOrganisation();
+			IList<OrganisationModel> organisationModelItems = new List<OrganisationModel>();
 
-			foreach (var item in parentitems)
+			foreach (var item in organisations)
 			{
-				var parentItem = new ParentItemModel();
-				parentItem.Name = item.Name;
-                parentItem.Description = item.Description;
-				parentItem.ParentItemid = item.ParentItemid;
+				var organisation = new OrganisationModel();
+				organisation.Name = item.Name;
+                organisation.Description = item.Description;
+				organisation.Organisationid = item.Organisationid;
 
 				foreach (var childItem in item.ChildItems)
 				{
 					var childItemModel = new ChildItemModel();
 					childItemModel.Name = childItem.Name;
 					childItemModel.ChildItemId = childItem.ChildItemId;
-					childItemModel.ParentItem = parentItem;
+					childItemModel.Organisation = organisation;
 
-					parentItem.ChildItems.Add(childItemModel);
+					organisation.ChildItems.Add(childItemModel);
 				}
 
 
-				parentModelItems.Add(parentItem);
+				organisationModelItems.Add(organisation);
 			}
 
-			adminModel.ParentItems = parentModelItems;
+			adminModel.Organisations = organisationModelItems;
 
 			return adminModel;
 
@@ -70,13 +70,13 @@ namespace ProjectHermes.Controllers
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
-		public ActionResult CreateParentItem()
+		public ActionResult CreateOrganisation()
 		{
 
 			var model = new AdminCreateModel();
-			var parentItem = new ParentItemModel();
+			var organisation = new OrganisationModel();
 
-			model.Parent = parentItem;
+			model.Organisation = organisation;
 
 			for (int i = 0; i < 6; i++)
 			{
@@ -90,16 +90,16 @@ namespace ProjectHermes.Controllers
 
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
-		public ActionResult CreateParentItem(AdminCreateModel model)
+		public ActionResult CreateOrganisation(AdminCreateModel model)
 		{
 
 			if (ModelState.IsValid)
 			{
 
-				var parentItem = new ParentItem(model.Parent.Name);
-				parentItem.Name = model.Parent.Name;
-                parentItem.Description = model.Parent.Description;
-				TempData["Message"] = string.Format("{0} has been added to your cart!", model.Parent.Name);
+				var organisation = new Organisation(model.Organisation.Name);
+				organisation.Name = model.Organisation.Name;
+                organisation.Description = model.Organisation.Description;
+				TempData["Message"] = string.Format("{0} has been added to your cart!", model.Organisation.Name);
 
 
 				foreach (var item in model.ChildItems)
@@ -107,15 +107,15 @@ namespace ProjectHermes.Controllers
 					if (item.Name != null)
 					{
 
-						var childItem = new ChildItem(parentItem);
+						var childItem = new ChildItem(organisation);
 						childItem.Name = item.Name;
-						parentItem.AddChildItem(childItem);
+						organisation.AddChildItem(childItem);
 
 					}
 				}
 
 
-				parentItem = _ParentItemService.CreateParent(parentItem);
+				organisation = _OrganisationService.CreateParent(organisation);
 
 				return RedirectToAction("Index");
 
@@ -126,32 +126,32 @@ namespace ProjectHermes.Controllers
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
-		public ActionResult EditParentItem(int id)
+		public ActionResult EditOrganisation(int id)
 		{
-			var parentItem = _ParentItemService.GetParentItem(id);
-			var parentItemModel = new ParentItemModel();
+			var Organisation = _OrganisationService.GetOrganisation(id);
+			var OrganisationModel = new OrganisationModel();
 
-			parentItemModel.Name = parentItem.Name;
-            parentItemModel.Description = parentItem.Description;
-            parentItemModel.ParentItemid = parentItem.ParentItemid;
+			OrganisationModel.Name = Organisation.Name;
+            OrganisationModel.Description = Organisation.Description;
+            OrganisationModel.Organisationid = Organisation.Organisationid;
 
-			return View(parentItemModel);
+			return View(OrganisationModel);
 		}
 
 		[Authorize(Roles = "Administrator")]
 		[Transaction]
 		[HttpPost]
-		public ActionResult EditParentItem(ParentItemModel item)
+		public ActionResult EditOrganisation(OrganisationModel item)
 		{
 			if (ModelState.IsValid)
 			{
 
-				var parentItem = new ParentItem(item.Name);
-				parentItem.Name = item.Name;
-                parentItem.Description = item.Description;
-				parentItem.ParentItemid = item.ParentItemid;
+				var Organisation = new Organisation(item.Name);
+				Organisation.Name = item.Name;
+                Organisation.Description = item.Description;
+				Organisation.Organisationid = item.Organisationid;
 
-				_ParentItemService.SaveParentItem(parentItem);
+				_OrganisationService.SaveOrganisation(Organisation);
 
 				return RedirectToAction("Index");
 			}
@@ -162,10 +162,10 @@ namespace ProjectHermes.Controllers
 		[Authorize(Roles = "Administrator")]
 		[Transaction]
 		[HttpGet]
-		public ActionResult DeleteParentItem(int id)
+		public ActionResult DeleteOrganisation(int id)
 		{
 
-			_ParentItemService.DeleteParentItem(id);
+			_OrganisationService.DeleteOrganisation(id);
 
 			return RedirectToAction("Index");
 		}

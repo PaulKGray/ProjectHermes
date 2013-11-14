@@ -8,12 +8,12 @@ namespace ProjectHermes.Models
     public class HomeModel
     {
 
-        public IList<ParentItemModel> ParentItems { get; set; }
+        public IList<OrganisationModel> Organisations { get; set; }
 
 
         public HomeModel()
         {
-			ParentItems = new List<ParentItemModel>();
+			Organisations = new List<OrganisationModel>();
         }
     }
 }

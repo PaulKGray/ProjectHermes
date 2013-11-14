@@ -7,12 +7,12 @@ using ProjectHermes.Domain;
 
 namespace ProjectHermes.Services.Interfaces
 {
-    public interface IParentItemService
+    public interface IOrganisationService
     {
-		ParentItem CreateParent(ParentItem parent);
-        ParentItem GetParentItem(int ParentItemId);
-        void SaveParentItem(ParentItem parentItem);
-		IList<ParentItem> GetAllParentItem();
-		void DeleteParentItem(int id);
+		Organisation CreateParent(Organisation parent);
+        Organisation GetOrganisation(int OrganisationId);
+        void SaveOrganisation(Organisation Organisation);
+		IList<Organisation> GetAllOrganisation();
+		void DeleteOrganisation(int id);
     }
 }

@@ -14,12 +14,12 @@ namespace ProjectHermes.Controllers
     public class HomeController : Controller
     {
 
-        private IParentItemService _ParentItemService;
+        private IOrganisationService _OrganisationService;
 		private IChildItemService _ChildItemService;
 
-        public HomeController(IParentItemService parentItemService, IChildItemService childItemService)
+        public HomeController(IOrganisationService OrganisationService, IChildItemService childItemService)
         {
-					_ParentItemService = parentItemService;
+					_OrganisationService = OrganisationService;
 					_ChildItemService = childItemService;
         }
 
@@ -37,15 +37,15 @@ namespace ProjectHermes.Controllers
 
             var model = new HomeModel();
 
-            var parentItems = _ParentItemService.GetAllParentItem();
+            var organisations = _OrganisationService.GetAllOrganisation();
 
-            foreach (var item in parentItems)
+            foreach (var item in organisations)
             {
-                var parentItem = new ParentItemModel();
+                var organisation = new OrganisationModel();
 
-                parentItem = convertParentItemDomainObject(item);
+                organisation = convertOrganisationDomainObject(item);
 
-                model.ParentItems.Add(parentItem);
+                model.Organisations.Add(organisation);
 
             }
 
@@ -56,34 +56,34 @@ namespace ProjectHermes.Controllers
         public ActionResult Details(int id)
         {
 
-            var item = _ParentItemService.GetParentItem(id);
+            var item = _OrganisationService.GetOrganisation(id);
 
-            var viewmodel = convertParentItemDomainObject(item);
+            var viewmodel = convertOrganisationDomainObject(item);
 
             return View(viewmodel);
             
         }
 
-        ParentItemModel convertParentItemDomainObject(ParentItem parentItem)
+        OrganisationModel convertOrganisationDomainObject(Organisation organisation)
         {
 
-            var parentItemModel = new ParentItemModel();
-            parentItemModel.ParentItemid = parentItem.ParentItemid;
-            parentItemModel.Name = parentItem.Name;
-            parentItemModel.Description = parentItem.Description;
+            var organisationModel = new OrganisationModel();
+            organisationModel.Organisationid = organisation.Organisationid;
+            organisationModel.Name = organisation.Name;
+            organisationModel.Description = organisation.Description;
 
-            foreach (var childItem in parentItem.ChildItems)
+            foreach (var childItem in organisation.ChildItems)
             {
 
                 var newChildItem = new ChildItemModel();
                 newChildItem.ChildItemId = childItem.ChildItemId;
                 newChildItem.Name = childItem.Name;
 
-                parentItemModel.ChildItems.Add(newChildItem);
+                organisationModel.ChildItems.Add(newChildItem);
 
             }
 
-            return parentItemModel;
+            return organisationModel;
 
         }
 

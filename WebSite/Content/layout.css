@@ -13,9 +13,6 @@ select,
 textarea {
   color: #222;
 }
-.content-wrapper {
-  background-color: #fff;
-}
 body {
   font-size: 1em;
   line-height: 1.4;
@@ -126,6 +123,7 @@ footer {
   min-height: 100%;
   margin-bottom: -142px;
   box-sizing: border-box;
+  background-color: #fff;
 }
 #body:after {
   content: "";
@@ -166,6 +164,7 @@ footer {
 }
 section {
   display: block;
+  padding: 10px;
 }
 article {
   -moz-transition: all 0.3s ease;

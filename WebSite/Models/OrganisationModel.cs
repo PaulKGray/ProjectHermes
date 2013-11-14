@@ -8,9 +8,9 @@ using ProjectHermes.Domain;
 
 namespace ProjectHermes.Models
 {
-    public class ParentItemModel
+    public class OrganisationModel
     {
-	    public int ParentItemid { get; set; }
+	    public int Organisationid { get; set; }
 
         [DisplayName("Parent Item Name")]
         [StringLength(160)]
@@ -22,7 +22,7 @@ namespace ProjectHermes.Models
 
 		public IList<ChildItemModel> ChildItems;
 
-        public ParentItemModel()
+        public OrganisationModel()
         {
 			ChildItems = new List<ChildItemModel>();
         }

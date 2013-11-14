@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainBase.cs" />
-    <Compile Include="ParentItem.cs" />
+    <Compile Include="Organisation.cs" />
     <Compile Include="ChildItem.cs" />
     <Compile Include="Enum\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
