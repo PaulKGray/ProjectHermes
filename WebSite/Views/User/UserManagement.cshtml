@@ -1,0 +1,80 @@
+﻿@model ProjectHermes.Models.Account.UserManagementModel
+
+
+
+<p class="bigText">
+    Manage the users on the site
+</p>
+
+
+@using (Html.BeginForm("UserManagement","User", FormMethod.Post))
+{
+    @Html.LabelFor(x=>x.SearchCriteria)
+    @Html.TextBoxFor(x=>x.SearchCriteria)
+
+    <input type="submit" value="Search" />
+}
+
+
+@Html.ActionLink("Whoop a new user","Register","Account")
+ 
+
+<table class="layout display responsive-table">
+	<thead>
+		<tr>
+			<th>
+				User
+			</th>
+			<th>
+				Details
+			</th>
+			<th>
+				Actions
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+
+@foreach (var user in Model.users)
+{
+	
+	<tr>
+		<td class="title">
+			@user.Username
+		</td>
+		<td>
+			@if (user.Roles.Count() > 0)
+	 {
+			<ul>
+
+			@foreach (var role in user.Roles)
+	 {
+		 <li>
+		 @role.Role
+			</li>
+	 }
+
+			</ul>
+		 
+	 }
+			else
+			{
+		<p>User is in no roles</p>
+	 }
+		</td>
+		<td>
+
+			@Html.ActionLink("View", "OpenUser", "Account", new { username=user.Username }, null)
+
+			@Html.ActionLink("Block", "BlockUser", "Account", new { username=user.Username }, null)
+
+			@Html.ActionLink("Delete", "DeleteUser", "Account", new { username=user.Username }, null)
+
+		</td>
+	</tr>
+}
+		
+	</tbody>
+</table>
+
+

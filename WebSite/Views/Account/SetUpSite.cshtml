@@ -1,0 +1,28 @@
+﻿@model ProjectHermes.Models.SetUpSiteModel
+
+<p class="bigText">
+    Its time to set up your site with an administration account. 
+</p>
+  
+@using (Html.BeginForm("SetUpSite", "Account", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(true)
+
+		<div>
+			@Html.LabelFor(x=>x.AdminUsername)
+			@Html.TextBoxFor(x=>x.AdminUsername)
+		</div>
+		
+		<div>
+			@Html.LabelFor(x=>x.AdminPassword)
+			@Html.PasswordFor(x=>x.AdminPassword)
+		</div>
+	
+		<div>
+			@Html.LabelFor(x=>x.ConfirmAdminPassword)
+			@Html.PasswordFor(x=>x.ConfirmAdminPassword)
+		</div>
+	    
+    <input type="submit" />
+}

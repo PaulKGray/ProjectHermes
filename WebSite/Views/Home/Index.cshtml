@@ -1,0 +1,61 @@
+﻿@model ProjectHermes.Models.HomeModel
+
+<section class="HeaderSection">
+	<header>
+		<h2>Home Page</h2>
+	</header>
+	<article>
+		<div class="subTitle">
+			<p class="bigText">This will be a subtitle </p>
+		</div>
+
+		<p>The concept of data on this site is simple there is a parent item with child item.</p>
+	</article>
+</section>
+<br style="clear:both" />
+
+   
+@using (Html.BeginForm("Index","Home", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(true)
+    
+ <section class="ArticleSection">
+	
+	@for (var i = 0; i < Model.ParentItems.Count(); i++)
+    {
+
+     
+       <article class="standardarticle" >    
+				 <header>
+					 @Model.ParentItems[i].Name
+				 </header>
+                <div class="content">
+					@Model.ParentItems[i].Description
+
+                    @if (Model.ParentItems[i].ChildItems.Count() > 0) { 
+                    
+                    <ul>
+                    @foreach (var item in @Model.ParentItems[i].ChildItems)
+                    {
+                      <li> @item.Name </li>
+                    }
+                    </ul>
+                    }
+                        
+
+
+   
+                </div>
+				 <footer>
+					@Html.ActionLink("View Item","Details", new { ID = Model.ParentItems[0].ParentItemid}, null)
+				 </footer>
+       </article> 
+       
+    }
+</section>
+        
+    
+}
+
+

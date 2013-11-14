@@ -1,0 +1,79 @@
+﻿@model ProjectHermes.Models.AdminModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p class="bigText">
+    Manage the items on your site. 
+</p>
+
+@Html.ActionLink("Add Parent Item", "CreateParentItem", "Admin")
+
+@TempData["Message"] 
+
+@{ if (Model.ParentItems.Count == 0)
+	 { 
+       
+       <h2>Sorry No Items Available</h2>
+       
+} else {
+
+		 
+		 
+      <table class="layout display responsive-table">
+
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Desciption</th>
+						<th>Controls</th>
+					</tr>
+
+				</thead>
+
+	@foreach (var item in Model.ParentItems)
+    {        
+					<tr>		
+						<td class="title"> 
+            @item.Name             
+						</td> 
+						<td>
+							@item.Description
+							
+							@if (item.ChildItems.Count > 0) {
+				 						
+									<ul>
+				 
+			 						 @foreach (var childItem in item.ChildItems)
+										{
+
+		
+                                        <li>     
+                                             @childItem.Name
+                                        </li>
+
+
+									}
+
+                                    </ul>
+						 }
+							else
+							{
+							<p>No Child Items</p>
+						}
+
+
+						</td>
+						<td>
+            @Html.ActionLink("Edit", "EditParentItem", "Admin", new { ID=item.ParentItemid }, null)
+						</td>
+     
+         	 </tr>	
+	 
+      
+}	</table>
+
+}}
+

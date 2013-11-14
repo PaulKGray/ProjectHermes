@@ -1,0 +1,61 @@
+﻿@import "lib";
+@import "mixins";
+
+
+
+	input, label, textarea, select
+	{
+		width: 98%;
+		padding:@element-padding;
+		margin-bottom:@element-margin-bottom;
+		line-height: 20px;
+		.boxsizing();
+		.background-color-animate(500ms);
+
+	}
+
+
+        input[type=submit], input[type=button]
+        {
+            width: 100%;
+            margin-top: @bottom-margin-top;
+            line-height: 35px;
+            color: @FontColour;
+            -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: @button-colour;
+            border: 1px solid #cccccc;
+            border-color: #333 #333 #ccc;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            border-bottom-color: #b3b3b3;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            .background-color-animate(500ms)
+        }
+
+        
+input[type=submit]:hover, input[type=submit]:focus	, input[type=button]:focus,  input[type=button]:hover {
+	color: @FontColour;
+	text-decoration: none;
+	background-color:@button-colour-hover;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+
+        border-bottom:solid 5px #000;
+		.background-color-animate(250ms)
+}
+
+	input:focus{
+					.boxshadow(0 0 10px rgba(255,255,224,.5));
+	}
+
+ input, textarea, select{
+ 		font-size:@font-size-form-element;
+				.boxshadow(0 5px 5px rgba(0,0,0,.07));
+ }
+

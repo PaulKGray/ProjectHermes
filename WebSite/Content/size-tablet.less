@@ -1,0 +1,33 @@
+﻿@import "lib";
+@import "mixins";
+
+/* Tablets ----------- */
+@media all and (max-width: @max-screen-width) and (min-width: @Tablet-width)
+{
+	body
+	{
+		        
+	}
+
+    .mainheader
+    {
+        height:50px;
+        .mobilename
+        {
+            display:none;
+        }
+    }
+
+
+        .mainheader, #body, .mainfooter
+    {
+                width: @Tablet-width;
+    }
+
+    p.bigText
+    {
+        font-size: 2.5em;
+    }
+
+
+}

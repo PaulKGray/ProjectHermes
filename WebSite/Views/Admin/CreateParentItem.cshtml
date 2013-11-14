@@ -1,0 +1,34 @@
+﻿@model ProjectHermes.Models.AdminCreateModel
+
+<h2>New Parent</h2>
+
+@using (Html.BeginForm("CreateParentItem", "Admin", FormMethod.Post))
+{
+
+	@Html.ValidationSummary();
+
+	@Html.LabelFor(x => x.Parent.Name);
+	@Html.TextBoxFor(x => x.Parent.Name);
+
+    @Html.LabelFor(x => x.Parent.Description);
+    @Html.TextAreaFor(x => x.Parent.Description);
+    
+	<h3>New Child Items</h3>
+	@Html.LabelFor(x => x.ChildItems[0].Name)
+    
+	for (int i = 0; i < Model.ChildItems.Count(); i++)
+	{
+	<div>
+		@Html.TextBoxFor(x => x.ChildItems[i].Name)
+	</div>
+	}
+
+	  
+	<div>
+		<input type="submit" value="Add Parent Item" />
+		@Html.ActionLink("Cancel", "Index")
+	</div>
+
+    
+
+}

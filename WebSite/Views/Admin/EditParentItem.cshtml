@@ -1,0 +1,31 @@
+﻿@model ProjectHermes.Models.ParentItemModel
+@{
+    ViewBag.Title = "EditStandardItem";
+}
+
+<p class="bigText">
+    Edit the item below 
+</p>
+
+
+@using (Html.BeginForm("EditParentItem", "Admin", FormMethod.Post))
+{
+    
+    @Html.ValidationSummary();
+
+    @Html.HiddenFor(x => x.ParentItemid);
+    
+    @Html.LabelFor(x => x.Name);
+    @Html.TextBoxFor(x => x.Name);
+ 
+    @Html.LabelFor(x => x.Description);
+    @Html.TextAreaFor(x => x.Description);
+      
+    <div class="control">
+        <input type="submit" value="Edit Item" />
+        @Html.ActionLink("Delete", "DeleteParentItem", new { ID=Model.ParentItemid })
+        @Html.ActionLink("Cancel", "Index")
+    </div>
+   
+ 
+}

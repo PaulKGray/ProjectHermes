@@ -1,0 +1,76 @@
+﻿@import "lib";
+@import "mixins";
+
+/* Smartphones (portrait) ----------- */
+@media all and (max-width: @Tablet-width) and (min-width: 0px)
+{
+	body
+	{
+
+	}
+    .mainheader, #body, .mainfooter
+    {
+                width: 300px;
+    }
+
+ 
+ .mainfooter{
+    
+ #footerlogo
+        {
+            float:none;
+     }
+
+}
+
+
+header{
+		height:@header-height-small;
+        }
+
+    .mainheader .mainNav
+    {
+        .navicon
+        {
+            display: block;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .mobilename
+        {
+            display:block;
+        }
+    }
+
+	.nav {
+
+        display:none;
+
+ 
+
+
+		li{
+
+			line-height:@header-height-small;
+
+		}
+
+
+	}
+
+    article
+    {
+        header, footer
+        {
+        }
+    }
+
+    p.bigText
+    {
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+
+}
