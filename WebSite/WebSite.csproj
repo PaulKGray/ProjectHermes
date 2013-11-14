@@ -331,8 +331,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\CreateParentItem.cshtml" />
-    <Content Include="Views\Admin\EditParentItem.cshtml" />
+    <Content Include="Views\Admin\CreateOrganisation.cshtml" />
+    <Content Include="Views\Admin\EditOrganisation.cshtml" />
     <Content Include="Views\Account\SetUpSite.cshtml" />
     <Content Include="Views\User\UserManagement.cshtml" />
     <Content Include="Content\size-large.less" />
