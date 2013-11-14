@@ -21,15 +21,10 @@
             margin-top: @bottom-margin-top;
             line-height: 35px;
             color: @button-colour;
-            -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
             vertical-align: middle;
             cursor: pointer;
             background-color: @button-backcolour;
-            border: 1px solid #cccccc;
-            border-color: #333 #333 #ccc;
-            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-            border-bottom-color: #b3b3b3;
+            border: 1px solid @button-border;
             -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
             -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -55,4 +50,19 @@ input[type=submit]:hover, input[type=submit]:focus	, input[type=button]:focus,  
  		font-size:@font-size-form-element;
 				.boxshadow(0 5px 5px rgba(0,0,0,.07));
  }
+
+
+
+
+.SearchForm {
+
+    input[type=text] {
+        float:left;
+        width:70%;
+    }
+    input[type=submit] {
+        float:left;
+        width:25%;
+    }
+}
 

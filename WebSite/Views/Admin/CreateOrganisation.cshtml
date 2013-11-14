@@ -7,11 +7,11 @@
 
 	@Html.ValidationSummary();
 
-	@Html.LabelFor(x => x.Parent.Name);
-	@Html.TextBoxFor(x => x.Parent.Name);
+	@Html.LabelFor(x => x.Organisation.Name);
+	@Html.TextBoxFor(x => x.Organisation.Name);
 
-    @Html.LabelFor(x => x.Parent.Description);
-    @Html.TextAreaFor(x => x.Parent.Description);
+    @Html.LabelFor(x => x.Organisation.Description);
+    @Html.TextAreaFor(x => x.Organisation.Description);
     
 	<h3>New Child Items</h3>
 	@Html.LabelFor(x => x.ChildItems[0].Name)
@@ -25,7 +25,7 @@
 
 	  
 	<div>
-		<input type="submit" value="Add Parent Item" />
+		<input type="submit" value="Add Organisation" />
 		@Html.ActionLink("Cancel", "Index")
 	</div>
 

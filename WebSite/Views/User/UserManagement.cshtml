@@ -6,17 +6,18 @@
     Manage the users on the site
 </p>
 
+<div class="SearchForm">
 
-@using (Html.BeginForm("UserManagement","User", FormMethod.Post))
+@using (Html.BeginForm("UserManagement","User",  FormMethod.Post))
 {
     @Html.LabelFor(x=>x.SearchCriteria)
     @Html.TextBoxFor(x=>x.SearchCriteria)
 
     <input type="submit" value="Search" />
 }
+</div>
 
-
-@Html.ActionLink("Whoop a new user","Register","Account")
+@Html.ActionLink("Add a new user","Register","Account")
  
 
 <table class="layout display responsive-table">
