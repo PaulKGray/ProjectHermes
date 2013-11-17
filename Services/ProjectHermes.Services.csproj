@@ -7,8 +7,8 @@
     <ProjectGuid>{28E7E5D3-F835-4285-87B7-7DFBA173A719}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Template.Services</RootNamespace>
-    <AssemblyName>Budget.Services</AssemblyName>
+    <RootNamespace>ProjectHermes.Services</RootNamespace>
+    <AssemblyName>ProjectHermes.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -65,8 +65,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IPlaceService.cs" />
     <Compile Include="OrganisationService.cs" />
-    <Compile Include="Interfaces\IParentItemService.cs" />
+    <Compile Include="Interfaces\IOrganisationService.cs" />
     <Compile Include="Interfaces\IChildItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrations\NinjectModule.cs" />

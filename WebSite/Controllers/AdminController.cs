@@ -70,7 +70,7 @@ namespace ProjectHermes.Controllers
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
-		public ActionResult CreateOrganisation()
+		public ActionResult Organisation()
 		{
 
 			var model = new AdminCreateModel();
@@ -90,7 +90,7 @@ namespace ProjectHermes.Controllers
 
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
-		public ActionResult CreateOrganisation(AdminCreateModel model)
+		public ActionResult Organisation(AdminCreateModel model)
 		{
 
 			if (ModelState.IsValid)

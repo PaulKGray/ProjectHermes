@@ -9,9 +9,9 @@ namespace ProjectHermes.Services.Interfaces
 {
     public interface IOrganisationService
     {
-		Organisation CreateParent(Organisation parent);
-        Organisation GetOrganisation(int OrganisationId);
-        void SaveOrganisation(Organisation Organisation);
+		Organisation CreateOrganisation(Organisation organisation);
+        Organisation GetOrganisation(int organisationId);
+        void SaveOrganisation(Organisation organisation);
 		IList<Organisation> GetAllOrganisation();
 		void DeleteOrganisation(int id);
     }

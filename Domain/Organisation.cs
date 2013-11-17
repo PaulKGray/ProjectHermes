@@ -16,21 +16,24 @@ namespace ProjectHermes.Domain
 
         public virtual IList<ChildItem> ChildItems { get; set; }
 
+        public virtual Place OrganisationPlace { get; set; }
+        
         protected Organisation()
         {
 
         }
 
-        public Organisation(string name)
+        public Organisation(string name, Place place)
         {
             this.Name = name;
+            this.OrganisationPlace = place;
             ChildItems = new List<ChildItem>();
         }
 
 
         public virtual void AddChildItem(ChildItem childitem)
         {
-
+            
             this.ChildItems.Add(childitem);
             childitem.Parent = this;
 

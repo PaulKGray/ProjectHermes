@@ -20,11 +20,11 @@ namespace ProjectHermes.Services
             _ParentRepository = repository;
         }
 
-        public Organisation CreateParent(Organisation parent)
+        public Organisation CreateOrganisation(Organisation organisation)
         {
-            _ParentRepository.Add(parent);
+            _ParentRepository.Add(organisation);
 
-            return parent;
+            return organisation;
         }
 
         public Organisation GetOrganisation(int OrganisationId)
@@ -38,16 +38,16 @@ namespace ProjectHermes.Services
             _ParentRepository.Update(Organisation);
         }
 
- 				public IList<Organisation> GetAllOrganisation()
-				{
-					return _ParentRepository.FindAll();
-				}
+        public IList<Organisation> GetAllOrganisation()
+        {
+            return _ParentRepository.FindAll();
+        }
 
 
-				public void DeleteOrganisation(int id)
-				{
-					var Organisation = _ParentRepository.FindBy(id);
-					_ParentRepository.Delete(Organisation);
-				}
-		}
+        public void DeleteOrganisation(int id)
+        {
+            var Organisation = _ParentRepository.FindBy(id);
+            _ParentRepository.Delete(Organisation);
+        }
+    }
 }

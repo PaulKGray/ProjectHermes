@@ -7,8 +7,8 @@
     <ProjectGuid>{C01BA0CF-C883-4BCA-868A-A5BCE85066B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Template.Domain</RootNamespace>
-    <AssemblyName>Budget.Domain</AssemblyName>
+    <RootNamespace>ProjectHermes.Domain</RootNamespace>
+    <AssemblyName>ProjectHermes.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,7 @@
     <Compile Include="Organisation.cs" />
     <Compile Include="ChildItem.cs" />
     <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
