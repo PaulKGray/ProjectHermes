@@ -7,7 +7,7 @@
     <ProjectGuid>{78C7E99C-9054-4255-B35F-D417AAAFB24B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Template.Repository</RootNamespace>
+    <RootNamespace>ProjectHermes.Repository</RootNamespace>
     <AssemblyName>Budget.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

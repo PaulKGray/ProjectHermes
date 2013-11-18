@@ -69,6 +69,7 @@
     <Compile Include="OrganisationService.cs" />
     <Compile Include="Interfaces\IOrganisationService.cs" />
     <Compile Include="Interfaces\IChildItemService.cs" />
+    <Compile Include="PlaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrations\NinjectModule.cs" />
     <Compile Include="Registrations\Services.cs" />

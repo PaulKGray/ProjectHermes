@@ -197,6 +197,9 @@
     <Compile Include="Controllers\Mailers\ForgotPasswordMailer.cs" />
     <Compile Include="Controllers\Mailers\IForgotPasswordMailer.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Converters\IConverter.cs" />
+    <Compile Include="Converters\OrganisationConverter.cs" />
+    <Compile Include="Converters\PlaceConverter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,6 +217,7 @@
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\OrganisationModel.cs" />
     <Compile Include="Models\Account\SetUpSiteModel.cs" />
+    <Compile Include="Models\PlaceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

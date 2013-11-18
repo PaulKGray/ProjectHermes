@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectHermes.Services.Interfaces
 {
-    interface IPlaceService
+    public interface IPlaceService
     {
         Place CreatePlace(Place place);
         Place GetPlace(int placeId);

@@ -22,8 +22,12 @@ namespace ProjectHermes.Models
 
 		public IList<ChildItemModel> ChildItems;
 
-        public OrganisationModel()
+        [Required]
+        public PlaceModel place;
+
+        public OrganisationModel(PlaceModel place)
         {
+            this.place = place;
 			ChildItems = new List<ChildItemModel>();
         }
 

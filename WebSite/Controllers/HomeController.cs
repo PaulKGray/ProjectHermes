@@ -14,13 +14,12 @@ namespace ProjectHermes.Controllers
     public class HomeController : Controller
     {
 
-        private IOrganisationService _OrganisationService;
-		private IChildItemService _ChildItemService;
+        
+        private IPlaceService _placeService;
 
-        public HomeController(IOrganisationService OrganisationService, IChildItemService childItemService)
+        public HomeController( IPlaceService placeService)
         {
-					_OrganisationService = OrganisationService;
-					_ChildItemService = childItemService;
+            _placeService = placeService;
         }
 
         [HttpGet]
@@ -37,11 +36,11 @@ namespace ProjectHermes.Controllers
 
             var model = new HomeModel();
 
-            var organisations = _OrganisationService.GetAllOrganisation();
+            var places = _placeService.GetAllPlace();
 
-            foreach (var item in organisations)
+            foreach (var item in places)
             {
-                var organisation = new OrganisationModel();
+                var organisation = new PlaceModel();
 
                 organisation = convertOrganisationDomainObject(item);
 
@@ -56,7 +55,7 @@ namespace ProjectHermes.Controllers
         public ActionResult Details(int id)
         {
 
-            var item = _OrganisationService.GetOrganisation(id);
+            var item = _placeService.GetPlace(id);
 
             var viewmodel = convertOrganisationDomainObject(item);
 
@@ -64,29 +63,7 @@ namespace ProjectHermes.Controllers
             
         }
 
-        OrganisationModel convertOrganisationDomainObject(Organisation organisation)
-        {
-
-            var organisationModel = new OrganisationModel();
-            organisationModel.Organisationid = organisation.Organisationid;
-            organisationModel.Name = organisation.Name;
-            organisationModel.Description = organisation.Description;
-
-            foreach (var childItem in organisation.ChildItems)
-            {
-
-                var newChildItem = new ChildItemModel();
-                newChildItem.ChildItemId = childItem.ChildItemId;
-                newChildItem.Name = childItem.Name;
-
-                organisationModel.ChildItems.Add(newChildItem);
-
-            }
-
-            return organisationModel;
-
-        }
-
+  
 
     }
 

@@ -8,12 +8,12 @@ namespace ProjectHermes.Models
     public class HomeModel
     {
 
-        public IList<OrganisationModel> Organisations { get; set; }
+        public IList<PlaceModel> Organisations { get; set; }
 
 
         public HomeModel()
         {
-			Organisations = new List<OrganisationModel>();
+			Organisations = new List<PlaceModel>();
         }
     }
 }

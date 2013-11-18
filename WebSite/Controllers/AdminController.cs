@@ -96,8 +96,8 @@ namespace ProjectHermes.Controllers
 			if (ModelState.IsValid)
 			{
 
-				var organisation = new Organisation(model.Organisation.Name);
-				organisation.Name = model.Organisation.Name;
+                var organisation = new Organisation(model.Organisation.Name);
+                organisation.Name = model.Organisation.Name;
                 organisation.Description = model.Organisation.Description;
 				TempData["Message"] = string.Format("{0} has been added to your cart!", model.Organisation.Name);
 
