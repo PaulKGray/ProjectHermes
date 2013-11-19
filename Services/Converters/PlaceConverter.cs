@@ -1,8 +1,8 @@
 ﻿using ProjectHermes.Domain;
-using ProjectHermes.Models;
 using System.Collections.Generic;
+using ProjectHermes.Services.ServiceModels;
 
-namespace ProjectHermes.Converters
+namespace ProjectHermes.Services.Converters
 {
     public class PlaceConverter : IConverter<Place,PlaceModel>
     {

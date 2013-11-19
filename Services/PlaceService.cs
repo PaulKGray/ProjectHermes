@@ -1,41 +1,77 @@
-﻿using ProjectHermes.Domain;
-using ProjectHermes.Repository.Interfaces;
-using ProjectHermes.Services.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using ProjectHermes.Domain;
+using ProjectHermes.Repository.Interfaces;
+using ProjectHermes.Services.Converters;
+using ProjectHermes.Services.Interfaces;
+using ProjectHermes.Services.ServiceModels;
 
 namespace ProjectHermes.Services
 {
     class PlaceService : IPlaceService
     {
         private IRepository<Place> placeRepository;
+        private IConverter<Place, PlaceModel> placeConverter;
+        private ValidationContext vc = null;
+        private List<ValidationResult> validationResults = new List<ValidationResult>();
 
         public PlaceService(IRepository<Place> repository)
         {
             placeRepository = repository;
+            placeConverter = new PlaceConverter();
         }
 
-        public Place CreatePlace(Place place)
+        public PlaceModel CreatePlace(PlaceModel place)
         {
-            return placeRepository.Add(place);
+
+            if (Validator.TryValidateObject(place, vc, validationResults, true))
+            {
+
+                var placeDomain = placeConverter.ConvertToDomain(place);
+                placeDomain = placeRepository.Add(placeDomain);
+
+                place = placeConverter.ConvertFromDomain(placeDomain);
+
+            } else {
+
+                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            }
+
+            return place;
+            
+
         }
 
-        public Place GetPlace(int placeId)
+        public PlaceModel GetPlace(int placeId)
         {
-            return placeRepository.FindBy(placeId);
+
+            var placeDomain = placeRepository.FindBy(placeId);
+            return placeConverter.ConvertFromDomain(placeDomain);
         }
 
-        public void SavePlace(Place place)
+        public void SavePlace(PlaceModel place)
         {
-            placeRepository.Update(place);
+
+
+            if (Validator.TryValidateObject(place, vc, validationResults, true))
+            {
+                var placeDomain = placeConverter.ConvertToDomain(place);
+                placeRepository.Update(placeDomain);
+            }
+            else
+            {
+
+                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            }
+
         }
 
-        public IList<Place> GetAllPlace()
+        public IList<PlaceModel> GetAllPlace()
         {
-            return placeRepository.FindAll();
+            var placeDomains =  placeRepository.FindAll();
+            return placeConverter.ConvertFromDomains(placeDomains);
+
         }
 
         public void DeleteOrganisation(int placeId)

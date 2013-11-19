@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjectHermes.Services.Interfaces;
-using ProjectHermes.Repository.Interfaces;
+using System.ComponentModel.DataAnnotations;
 using ProjectHermes.Domain;
+using ProjectHermes.Repository.Interfaces;
+using ProjectHermes.Services.Converters;
+using ProjectHermes.Services.Interfaces;
+using ProjectHermes.Services.ServiceModels;
 
 namespace ProjectHermes.Services
 {
@@ -13,34 +13,46 @@ namespace ProjectHermes.Services
     {
 
         private IRepository<Organisation> _ParentRepository;
-
+        private IConverter<Organisation, OrganisationModel> organisationConverter;
+        private ValidationContext vc = null;
+        private List<ValidationResult> validationResults = new List<ValidationResult>();
 
         public OrganisationService(IRepository<Organisation> repository)
         {
             _ParentRepository = repository;
+            organisationConverter = new OrganisationConverter();
         }
 
-        public Organisation CreateOrganisation(Organisation organisation)
+        public OrganisationModel CreateOrganisation(OrganisationModel organisation)
         {
-            _ParentRepository.Add(organisation);
-
+            if (Validator.TryValidateObject(organisation, vc, validationResults, true))
+            {
+                var organisationDomain = organisationConverter.ConvertToDomain(organisation);
+                organisationDomain = _ParentRepository.Add(organisationDomain);
+                organisation = organisationConverter.ConvertFromDomain(organisationDomain);
+            }
+            else
+            {
+                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            }
             return organisation;
         }
 
-        public Organisation GetOrganisation(int OrganisationId)
+        public OrganisationModel GetOrganisation(int organisationId)
         {
-            var Organisation = _ParentRepository.FindBy(OrganisationId);
-            return Organisation;
+            var organisationDomain = _ParentRepository.FindBy(organisationId);
+            return organisationConverter.ConvertFromDomain(organisationDomain);
         }
 
-        public void SaveOrganisation(Organisation Organisation)
+        public void SaveOrganisation(OrganisationModel organisation)
         {
-            _ParentRepository.Update(Organisation);
+            var organisationDomain = organisationConverter.ConvertToDomain(organisation);
+            _ParentRepository.Update(organisationDomain);
         }
 
-        public IList<Organisation> GetAllOrganisation()
+        public IList<OrganisationModel> GetAllOrganisation()
         {
-            return _ParentRepository.FindAll();
+            return organisationConverter.ConvertFromDomains(_ParentRepository.FindAll());
         }
 
 

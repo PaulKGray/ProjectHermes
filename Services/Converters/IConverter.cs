@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectHermes.Converters
+namespace ProjectHermes.Services.Converters
 {
     /// <summary>
     /// The basic stucture of a converter
     /// </summary>
     /// <typeparam name="D">The Domain Type</typeparam>
     /// <typeparam name="U">The Model Type</typeparam>
-    interface IConverter<D,M>
+    public interface IConverter<D,M>
     {
         D ConvertToDomain(M model);
         M ConvertFromDomain(D domain);

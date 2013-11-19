@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjectHermes.Models
+namespace ProjectHermes.Services.ServiceModels
 {
     public class PlaceModel 
     {

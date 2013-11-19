@@ -14,10 +14,10 @@ namespace ProjectHermes.Controllers
     public class HomeController : Controller
     {
 
-        
+
         private IPlaceService _placeService;
 
-        public HomeController( IPlaceService placeService)
+        public HomeController(IPlaceService placeService)
         {
             _placeService = placeService;
         }
@@ -38,15 +38,7 @@ namespace ProjectHermes.Controllers
 
             var places = _placeService.GetAllPlace();
 
-            foreach (var item in places)
-            {
-                var organisation = new PlaceModel();
-
-                organisation = convertOrganisationDomainObject(item);
-
-                model.Organisations.Add(organisation);
-
-            }
+           
 
             return View(model);
         }
@@ -57,15 +49,13 @@ namespace ProjectHermes.Controllers
 
             var item = _placeService.GetPlace(id);
 
-            var viewmodel = convertOrganisationDomainObject(item);
+            return View(item);
 
-            return View(viewmodel);
-            
         }
 
-  
+
 
     }
 
-    
+
 }
