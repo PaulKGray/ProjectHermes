@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="DomainBase.cs" />
     <Compile Include="Organisation.cs" />
-    <Compile Include="ChildItem.cs" />
     <Compile Include="Enum\Enums.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

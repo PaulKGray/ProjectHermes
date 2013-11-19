@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using ProjectHermes.Helpers.Converters;
-using ProjectHermes.Models;
+﻿using ProjectHermes.Services.Converters;
 using ProjectHermes.Services.Interfaces;
+using ProjectHermes.Services.ServiceModels;
+using System.Collections.Generic;
+using System.Web.Http;
 
 namespace ProjectHermes.Controllers
 {
@@ -23,9 +19,8 @@ namespace ProjectHermes.Controllers
 
  
         public IList<OrganisationModel> GetAllParents()
-        {
-            var converter = new OrganisationConverter();  
-            var Organisations = converter.convertOrganisationDomainObject(_OrganisationService.GetAllOrganisation());
+        { 
+            var Organisations = _OrganisationService.GetAllOrganisation();
             return Organisations;
         }
 

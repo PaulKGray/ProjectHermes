@@ -74,7 +74,7 @@ namespace ProjectHermes.Services
 
         }
 
-        public void DeleteOrganisation(int placeId)
+        public void DeletePlace(int placeId)
         {
             var place = placeRepository.FindBy(placeId);
 
@@ -82,5 +82,7 @@ namespace ProjectHermes.Services
 
             placeRepository.Delete(place);
         }
+
+
     }
 }

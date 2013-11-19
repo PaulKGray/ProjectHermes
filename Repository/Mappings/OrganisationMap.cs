@@ -17,7 +17,6 @@ namespace ProjectHermes.Repository.Mappings
 			Map(x => x.Name);
             Map(x => x.Description);
             HasOne(x => x.OrganisationPlace).ForeignKey("Place_Id");
-            HasMany(x => x.ChildItems).Cascade.All().KeyColumns.Add("Parent_Id");
         }
     }
 }

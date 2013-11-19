@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjectHermes.Domain;
+﻿
 
+using ProjectHermes.Services.ServiceModels;
+using System.Collections.Generic;
 namespace ProjectHermes.Services.Interfaces
 {
     public interface IOrganisationService
     {
-		Organisation CreateOrganisation(Organisation organisation);
-        Organisation GetOrganisation(int organisationId);
-        void SaveOrganisation(Organisation organisation);
-		IList<Organisation> GetAllOrganisation();
+        OrganisationModel CreateOrganisation(OrganisationModel organisation);
+        OrganisationModel GetOrganisation(int organisationId);
+        void SaveOrganisation(OrganisationModel organisation);
+        IList<OrganisationModel> GetAllOrganisation();
 		void DeleteOrganisation(int id);
     }
 }

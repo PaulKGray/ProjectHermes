@@ -11,12 +11,12 @@ namespace ProjectHermes.Services.Converters
 
         public PlaceConverter()
         {
-            organisationConverter = new OrganisationConverter();
+      
         }
 
         public Place ConvertToDomain(PlaceModel model)
         {
-
+            organisationConverter = new OrganisationConverter();
             var place = new Place(model.PlaceName);
             place.PlaceID = model.PlaceId;
             place.PlaceDescription = model.PlaceDescription;
@@ -28,6 +28,7 @@ namespace ProjectHermes.Services.Converters
 
         public PlaceModel ConvertFromDomain(Place domain)
         {
+            organisationConverter = new OrganisationConverter();
             var placeModel = new PlaceModel();
             placeModel.PlaceName = domain.PlaceName;
             placeModel.PlaceDescription = domain.PlaceDescription;

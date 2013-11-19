@@ -51,7 +51,6 @@
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Mappings\OrganisationMap.cs" />
-    <Compile Include="Mappings\ChildItemMap.cs" />
     <Compile Include="Mappings\PlaceMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
