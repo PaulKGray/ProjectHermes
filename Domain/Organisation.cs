@@ -1,9 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ProjectHermes.Domain
 {
 	public class Organisation : DomainBase
@@ -15,7 +11,10 @@ namespace ProjectHermes.Domain
         public virtual string Description { get; set; }
 
         public virtual Place OrganisationPlace { get; set; }
-        
+
+        public IList<OrganisationCategories> OrganisationCategories { get; set; }
+
+                
         protected Organisation()
         {
 
@@ -25,6 +24,7 @@ namespace ProjectHermes.Domain
         {
             this.Name = name;
             this.OrganisationPlace = place;
+            this.OrganisationCategories = new List<OrganisationCategories>();
         }
 
 

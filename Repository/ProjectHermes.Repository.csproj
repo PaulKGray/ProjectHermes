@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Mappings\CategoryMap.cs" />
+    <Compile Include="Mappings\OrganisationCategoryMap.cs" />
     <Compile Include="Mappings\OrganisationMap.cs" />
     <Compile Include="Mappings\PlaceMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

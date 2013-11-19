@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="DomainBase.cs" />
     <Compile Include="Organisation.cs" />
     <Compile Include="Enum\Enums.cs" />
+    <Compile Include="OrganisationCategories.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

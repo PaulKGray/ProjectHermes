@@ -111,9 +111,7 @@ footer {
   margin-right: 20px;
 }
 .mainheader .mainNav li:hover {
-  -webkit-box-shadow: 0 8px 6px -6px #000000;
-  -moz-box-shadow: 0 8px 6px -6px #000000;
-  box-shadow: 0 8px 6px -6px #000000;
+  box-shadow: 0 8px 2px 1px #fff;
 }
 #body {
   padding: 3px;

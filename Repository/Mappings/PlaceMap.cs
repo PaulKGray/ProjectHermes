@@ -1,11 +1,7 @@
-﻿using FluentNHibernate.Mapping;
-using ProjectHermes.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
+using FluentNHibernate.Mapping;
+using ProjectHermes.Domain;
 namespace ProjectHermes.Repository.Mappings
 {
     class PlaceMap : ClassMap<Place>
