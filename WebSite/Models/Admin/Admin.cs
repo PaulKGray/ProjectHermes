@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ProjectHermes.Domain;
 using ProjectHermes.Services.ServiceModels;
 
-namespace ProjectHermes.Models
+namespace ProjectHermes.Models.Admin
 {
     public class AdminModel
     {
 
-		public IList<OrganisationModel> Organisations;
+		public IList<OrganisationModel> Organisations { get; set; }
+
+        public IList<PlaceModel> Places { get; set; }
 
         public AdminModel()
         {
-			Organisations = new List<OrganisationModel>();
+            this.Places = new List<PlaceModel>();
+			this.Organisations = new List<OrganisationModel>();
         }
 
     }

@@ -196,6 +196,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Mailers\ForgotPasswordMailer.cs" />
     <Compile Include="Controllers\Mailers\IForgotPasswordMailer.cs" />
+    <Compile Include="Controllers\OrganisationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,7 +208,8 @@
     <Compile Include="Models\Account\RolesModel.cs" />
     <Compile Include="Models\Account\UserManagementModel.cs" />
     <Compile Include="Models\Account\UserModel.cs" />
-    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Admin\Admin.cs" />
+    <Compile Include="Models\Admin\OrganisationAdministration.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\SetUpSiteModel.cs" />
@@ -342,6 +344,8 @@
     <Content Include="Views\UserMailer\PasswordReset.cshtml" />
     <Content Include="Views\UserMailer\Welcome.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
+    <Content Include="Views\Organisation\Index.cshtml" />
+    <Content Include="Views\Organisation\OrganisationDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,10 +357,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\ProjectHermes.Domain.csproj">
-      <Project>{c01ba0cf-c883-4bca-868a-a5bce85066b9}</Project>
-      <Name>ProjectHermes.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Services\ProjectHermes.Services.csproj">
       <Project>{28e7e5d3-f835-4285-87b7-7dfba173a719}</Project>
       <Name>ProjectHermes.Services</Name>

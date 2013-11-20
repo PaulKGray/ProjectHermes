@@ -1,5 +1,4 @@
 ﻿using ProjectHermes.Controllers.Actionfilters;
-using ProjectHermes.Domain;
 using ProjectHermes.Models;
 using ProjectHermes.Services.Interfaces;
 using System;

@@ -24,6 +24,10 @@ namespace ProjectHermes.Services.ServiceModels
         [Required]
         public PlaceModel place;
 
+        public OrganisationModel()
+        { 
+        }
+
         public OrganisationModel(PlaceModel place)
         {
             this.place = place;

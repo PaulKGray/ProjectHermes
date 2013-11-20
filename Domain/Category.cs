@@ -14,8 +14,9 @@ namespace ProjectHermes.Domain
         
         }
 
-        public Category()
-        {
+        public Category(string name){
+
+            this.CategoryName = name;
             OrganisationCategories = new List<OrganisationCategories>();
         }
 

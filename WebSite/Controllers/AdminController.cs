@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProjectHermes.Controllers.Actionfilters;
-using ProjectHermes.Domain;
-using ProjectHermes.Models;
+using ProjectHermes.Models.Admin;
 using ProjectHermes.Services.Interfaces;
 using ProjectHermes.Services.ServiceModels;
 
@@ -17,10 +16,12 @@ namespace ProjectHermes.Controllers
 		// GET: /Admin/
 
 		private IOrganisationService _OrganisationService;
+        private IPlaceService _PlaceService;
 
-		public AdminController(IOrganisationService organisationService)
+		public AdminController(IOrganisationService organisationService, IPlaceService placeService)
 		{
 			_OrganisationService = organisationService;
+            _PlaceService = placeService;
 		}
 
 		[Authorize(Roles = "Administrator")]
@@ -39,52 +40,16 @@ namespace ProjectHermes.Controllers
 
 			var organisations = _OrganisationService.GetAllOrganisation();
 
-			foreach (var item in organisations)
-			{
-				
-			}
+            var places = _PlaceService.GetAllPlace();
 
+            adminModel.Places = places;
+            adminModel.Organisations = organisations;
 
 			return adminModel;
 
 		}
 		
-		[Authorize(Roles = "Administrator")]
-		[HttpGet]
-		public ActionResult Organisation()
-		{
 
-			var model = new AdminCreateModel();
-            //var organisation = new OrganisationModel();
-
-            //model.Organisation = organisation;
-
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    var childitem = new ChildItemModel();
-
-            //    model.ChildItems.Add(childitem);
-
-            //}
-			return View(model);
-		}
-
-		[Authorize(Roles = "Administrator")]
-		[HttpPost]
-		public ActionResult Organisation(AdminCreateModel model)
-		{
-
-			if (ModelState.IsValid)
-			{
-
- 
-
-				return RedirectToAction("Index");
-
-			}
-
-			return View(model);
-		}
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
