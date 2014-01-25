@@ -12,7 +12,7 @@ namespace ProjectHermes.Domain
 
         public virtual Place OrganisationPlace { get; set; }
 
-        public IList<OrganisationCategories> OrganisationCategories { get; set; }
+        public virtual IList<OrganisationCategories> OrganisationCategories { get; set; }
 
                 
         protected Organisation()

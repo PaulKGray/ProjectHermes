@@ -4,9 +4,9 @@ namespace ProjectHermes.Domain
 {
     public class OrganisationCategories
     {
-        public int OrganisationCategoriesId { get; set; }
-        public Organisation Organisation { get; set; }
-        public Category Category { get; set; } 
+        public virtual int OrganisationCategoriesId { get; set; }
+        public virtual Organisation Organisation { get; set; }
+        public virtual Category Category { get; set; } 
 
 
     }
