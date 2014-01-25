@@ -1,79 +1,75 @@
-﻿@model ProjectHermes.Models.AdminModel
+﻿@model ProjectHermes.Models.Admin.AdminModel
+ 
 
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="col-xs-12 col-sm-9">
 
-<p class="bigText">
-    Manage the items on your site. 
-</p>
+   <h2>Organisations</h2>
 
-@Html.ActionLink("Add Parent Item", "Organisation", "Admin")
+    @{ if (Model.Organisations.Count == 0)
+ {
 
-@TempData["Message"] 
+    <p class="well">Sorry no organisations have been added</p>
 
-@{ if (Model.Organisations.Count == 0)
-	 { 
-       
-       <h2>Sorry No Items Available</h2>
-       
-} else {
-
-		 
-		 
-      <table class="layout display responsive-table">
-
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Desciption</th>
-						<th>Controls</th>
-					</tr>
-
-				</thead>
-
-	@foreach (var item in Model.Organisations)
-    {        
-					<tr>		
-						<td class="title"> 
-            @item.Name             
-						</td> 
-						<td>
-							@item.Description
-							
-							@if (item.ChildItems.Count > 0) {
-				 						
-									<ul>
-				 
-			 						 @foreach (var childItem in item.ChildItems)
-										{
-
-		
-                                        <li>     
-                                             @childItem.Name
-                                        </li>
+ }
+ else
+ {
 
 
-									}
 
-                                    </ul>
-						 }
-							else
-							{
-							<p>No Child Items</p>
-						}
+        <table class="layout display responsive-table">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Desciption</th>
+                    <th>Controls</th>
+                </tr>
+
+            </thead>
+
+            @foreach (var item in Model.Organisations)
+            {
+                <tr>
+                    <td class="title">
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Description
+
+                       
+
+                    
 
 
-						</td>
-						<td>
-            @Html.ActionLink("Edit", "EditOrganisation", "Admin", new { ID=item.Organisationid }, null)
-						</td>
-     
-         	 </tr>	
-	 
-      
-}	</table>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditOrganisation", "Admin", new { ID = item.Organisationid }, null)
+                    </td>
 
-}}
+                </tr>
 
+
+            }
+        </table>
+
+     }}
+
+</div>
+
+
+
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
+    <p class="bigText">
+        Manage the items on your site.
+    </p>
+
+    @Html.ActionLink("Add Organisation", "EditOrganisation/0", "Admin", new { @class = "btn btn-default" })
+
+    @Html.ActionLink("Add Place", "EditPlace/0", "Place", null , new { @class = "btn btn-default" })
+
+    @TempData["Message"]
+
+
+</div>

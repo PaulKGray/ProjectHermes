@@ -1,28 +1,41 @@
 ﻿@model ProjectHermes.Models.SetUpSiteModel
 
-<p class="bigText">
-    Its time to set up your site with an administration account. 
-</p>
-  
-@using (Html.BeginForm("SetUpSite", "Account", FormMethod.Post))
-{
 
-    @Html.ValidationSummary(true)
+<div class="col-xs-12 col-sm-9">
 
-		<div>
-			@Html.LabelFor(x=>x.AdminUsername)
-			@Html.TextBoxFor(x=>x.AdminUsername)
-		</div>
-		
-		<div>
-			@Html.LabelFor(x=>x.AdminPassword)
-			@Html.PasswordFor(x=>x.AdminPassword)
-		</div>
-	
-		<div>
-			@Html.LabelFor(x=>x.ConfirmAdminPassword)
-			@Html.PasswordFor(x=>x.ConfirmAdminPassword)
-		</div>
-	    
-    <input type="submit" />
-}
+    @using (Html.BeginForm("SetUpSite", "Account", FormMethod.Post))
+    {
+
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+    
+            @Html.LabelFor(x => x.AdminUsername)
+            @Html.TextBoxFor(x => x.AdminUsername, new { @class = "form-control"})
+        </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.AdminPassword)
+        @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ConfirmAdminPassword)
+        @Html.PasswordFor(x => x.ConfirmAdminPassword, new { @class = "form-control" })
+    </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    }
+
+
+</div>
+
+
+
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
+    <h2>Lets Get Started</h2>
+
+    <p>Your new site is ready but we need to set up a administration account</p>
+
+</div>

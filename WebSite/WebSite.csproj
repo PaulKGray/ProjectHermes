@@ -197,6 +197,7 @@
     <Compile Include="Controllers\Mailers\ForgotPasswordMailer.cs" />
     <Compile Include="Controllers\Mailers\IForgotPasswordMailer.cs" />
     <Compile Include="Controllers\OrganisationController.cs" />
+    <Compile Include="Controllers\PlaceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,97 +211,33 @@
     <Compile Include="Models\Account\UserModel.cs" />
     <Compile Include="Models\Admin\Admin.cs" />
     <Compile Include="Models\Admin\OrganisationAdministration.cs" />
+    <Compile Include="Models\Admin\PlaceAdministration.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\SetUpSiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\fonts.less" />
-    <Content Include="Content\extra.css">
-      <DependentUpon>extras.less</DependentUpon>
-    </Content>
-    <Content Include="Content\extra.min.css">
-      <DependentUpon>extras.less</DependentUpon>
-    </Content>
-    <Content Include="Content\fonts.css">
-      <DependentUpon>fonts.less</DependentUpon>
-    </Content>
-    <Content Include="Content\fonts.min.css">
-      <DependentUpon>fonts.less</DependentUpon>
-    </Content>
-    <Content Include="Content\forms.css">
-      <DependentUpon>forms.less</DependentUpon>
-    </Content>
-    <Content Include="Content\forms.less" />
-    <None Include="Content\extras.less" />
-    <None Include="Content\size-tablet.less" />
-    <None Include="Content\size-mobile.less" />
-    <None Include="Content\mixins.less" />
-    <None Include="Content\layout.less" />
-    <Content Include="Content\forms.min.css">
-      <DependentUpon>forms.less</DependentUpon>
-    </Content>
-    <Content Include="Content\layout.css">
-      <DependentUpon>layout.less</DependentUpon>
-    </Content>
-    <Content Include="Content\layout.min.css">
-      <DependentUpon>layout.less</DependentUpon>
-    </Content>
-    <Content Include="Content\lib.css">
-      <DependentUpon>lib.less</DependentUpon>
-    </Content>
-    <Content Include="Content\lib.min.css">
-      <DependentUpon>lib.less</DependentUpon>
-    </Content>
-    <Content Include="Content\master.css">
-      <DependentUpon>master.less</DependentUpon>
-    </Content>
-    <Content Include="Content\master.min.css">
-      <DependentUpon>master.less</DependentUpon>
-    </Content>
-    <Content Include="Content\mixins.css">
-      <DependentUpon>mixins.less</DependentUpon>
-    </Content>
-    <Content Include="Content\mixins.min.css">
-      <DependentUpon>mixins.less</DependentUpon>
-    </Content>
-    <Content Include="Content\normalize.css" />
-    <None Include="Content\tables.less" />
-    <Content Include="Content\size-large.css">
-      <DependentUpon>size-large.less</DependentUpon>
-    </Content>
-    <Content Include="Content\size-large.min.css">
-      <DependentUpon>size-large.less</DependentUpon>
-    </Content>
-    <Content Include="Content\size-mobile.css">
-      <DependentUpon>size-mobile.less</DependentUpon>
-    </Content>
-    <Content Include="Content\size-mobile.min.css">
-      <DependentUpon>size-mobile.less</DependentUpon>
-    </Content>
-    <Content Include="Content\size-tablet.css">
-      <DependentUpon>size-tablet.less</DependentUpon>
-    </Content>
-    <Content Include="Content\size-tablet.min.css">
-      <DependentUpon>size-tablet.less</DependentUpon>
-    </Content>
-    <Content Include="Content\tables.css">
-      <DependentUpon>tables.less</DependentUpon>
-    </Content>
-    <Content Include="Content\tables.min.css">
-      <DependentUpon>tables.less</DependentUpon>
-    </Content>
-    <None Include="Content\lib.less" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="humans.txt" />
     <Content Include="Images\BearLogo.png" />
     <Content Include="Images\GrayBear.jpg" />
     <Content Include="Images\GrayBear.png" />
     <Content Include="Images\Grayskull.jpg" />
     <Content Include="Images\MobileNav.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\vendor\jquery-1.9.1.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="style\bootstrap-theme.css" />
+    <Content Include="style\bootstrap-theme.min.css" />
+    <Content Include="style\bootstrap.css" />
+    <Content Include="style\bootstrap.min.css" />
+    <Content Include="style\offCanvas.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -334,9 +271,6 @@
     <Content Include="Views\Admin\EditOrganisation.cshtml" />
     <Content Include="Views\Account\SetUpSite.cshtml" />
     <Content Include="Views\User\UserManagement.cshtml" />
-    <Content Include="Content\size-large.less" />
-    <Content Include="Content\master.less" />
-    <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -344,8 +278,6 @@
     <Content Include="Views\UserMailer\PasswordReset.cshtml" />
     <Content Include="Views\UserMailer\Welcome.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
-    <Content Include="Views\Organisation\Index.cshtml" />
-    <Content Include="Views\Organisation\OrganisationDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -364,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Place\EditPlace.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

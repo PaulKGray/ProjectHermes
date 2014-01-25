@@ -48,22 +48,30 @@ namespace ProjectHermes.Controllers
 			return adminModel;
 
 		}
-		
+
 
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
 		public ActionResult EditOrganisation(int id)
 		{
-			var Organisation = _OrganisationService.GetOrganisation(id);
-
-            return View(Organisation);
+            OrganisationAdministration organisation = new OrganisationAdministration();
+            organisation.Places = _PlaceService.GetAllPlace();
+            if (id == 0)
+            {
+                organisation.Organisation = new OrganisationModel();
+            }
+            else {
+                organisation.Organisation = _OrganisationService.GetOrganisation(id);
+            }
+            
+            return View(organisation);
 		}
 
 		[Authorize(Roles = "Administrator")]
 		[Transaction]
 		[HttpPost]
-		public ActionResult EditOrganisation(OrganisationModel item)
+		public ActionResult EditOrganisation(OrganisationAdministration item)
 		{
 			if (ModelState.IsValid)
 			{

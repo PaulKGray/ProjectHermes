@@ -7,74 +7,73 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+        <meta name="description" content="" />
+        <link href="~/style/offCanvas.css" rel="stylesheet" />
+        <link href="~/style/bootstrap.min.css" rel="stylesheet" />
     </head>
-	  <body>
-			<header class="mainheader">
-				<nav class="mainNav" >	
+	  <body style>
 
-								<img class="logo" src="~/Images/BearLogo.png" alt="GrayBear" />
-								<a class="navicon" href="#">MAIN MENU</a>
-								<h1 class="mobilename">SiteName</h1>
-								
-								
-                <ul class="nav">
+        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">ProjectHermes</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
 
-
-
-
-
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
-
-									@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator")) {
-									   
-										<li>@Html.ActionLink("Admin", "Index","Admin")</li>
-					 					<li>@Html.ActionLink("Users", "UserManagement","User")</li>
-					 
-									}
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
 
-									
-										@if (User.Identity.IsAuthenticated)
-									{
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("Users", "UserManagement", "User")</li>
+                        }
 
-									<li class="LoginLink">@Html.ActionLink("Log out","Logout","Account")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
 
-									}
-									else { 
-          
+                            <li class="LoginLink">@Html.ActionLink("Log out", "Logout", "Account")</li>
 
-          
-									<li class="LoginLink">@Html.ActionLink("Login", "Login", "Account")</li>
-									<li class="LoginLink">@Html.ActionLink("Register", "Register", "Account")</li>
-				
-	
-          
-                        
-									}
+                        }
+                        else
+                        {
+                            <li class="LoginLink">@Html.ActionLink("Login", "Login", "Account")</li>
+                            <li class="LoginLink">@Html.ActionLink("Register", "Register", "Account")</li>
+                        }
 
-                </ul>
-            </nav>
-        </header>
-        <div id="body">
-            <section class="content-wrapper main-content clear-fix">
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div>
+        </div>
+
+
+        <div class="container">
+            <!--[if lt IE 7]>
+                <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->
+
+
+
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+
                 @RenderBody()
-            </section>
-						
-				<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+
+
+            </div>
+
+
 
         </div>
-        <footer class="mainfooter">		
-						<img id="footerlogo" alt="GrayBear Web Ontogenesis" src="~/Images/GrayBear.png" />
+        <footer>		
             <small>&copy; @DateTime.Now.Year - ProjectHermes Web Site Name</small>
 
 						
@@ -85,7 +84,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="Scripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-
+        <script type="text/javascript" src="~/js/bootstrap.js"></script>
         @RenderSection("scripts", required: false)
 
        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

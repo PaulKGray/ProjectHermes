@@ -1,0 +1,23 @@
+﻿@model ProjectHermes.Models.Admin.PlaceAdministration
+
+@{
+    ViewBag.Title = "PlaceDetail";
+}
+
+@if (Model.place.PlaceId != 0) 
+{ 
+<h2>Edit Place</h2>
+}
+else 
+{
+<h2>Add Place</h2>
+}
+
+@Html.BeginForm("editPlace", "place",  FormMethod.Post ){
+
+    @Html.ValidationSummary();
+
+
+    
+}
+

@@ -12,17 +12,17 @@ namespace ProjectHermes.Services.ServiceModels
     {
 	    public int Organisationid { get; set; }
 
-        [DisplayName("Parent Item Name")]
+        [DisplayName("Organisation Name")]
         [StringLength(160)]
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
         [DisplayName("Description")]
+        [Required(ErrorMessage = "A description is required is required")]
         public string Description { get; set; }
 
 
-        [Required]
-        public PlaceModel place;
+        public PlaceModel place {get; set;}
 
         public OrganisationModel()
         { 

@@ -138,7 +138,7 @@ namespace ProjectHermes.Controllers
 
 							FormsAuthentication.SetAuthCookie(model.AdminUsername, true);
 
-                            return RedirectToAction("UserManagement");
+                            return RedirectToAction("Index", "Home");
 
 						}
 

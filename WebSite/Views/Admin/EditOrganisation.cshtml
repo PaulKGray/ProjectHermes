@@ -1,31 +1,55 @@
-﻿@model ProjectHermes.Models.OrganisationModel
-@{
-    ViewBag.Title = "EditStandardItem";
+﻿@model ProjectHermes.Models.Admin.OrganisationAdministration
+
+
+@if (Model.Organisation.Organisationid != 0)
+{
+<h2>
+    Edit Organisation
+</h2>
+}
+else { 
+<h2>
+    Add Organisation
+</h2>
 }
 
-<p class="bigText">
-    Edit the item below 
-</p>
 
 
 @using (Html.BeginForm("EditOrganisation", "Admin", FormMethod.Post))
 {
     
-    @Html.ValidationSummary();
-
-    @Html.HiddenFor(x => x.Organisationid);
     
-    @Html.LabelFor(x => x.Name);
-    @Html.TextBoxFor(x => x.Name);
- 
-    @Html.LabelFor(x => x.Description);
-    @Html.TextAreaFor(x => x.Description);
-      
-    <div class="control">
-        <input type="submit" value="Edit Item" />
-        @Html.ActionLink("Delete", "DeleteOrganisation", new { ID=Model.Organisationid })
-        @Html.ActionLink("Cancel", "Index")
-    </div>
+    
+    { if (Model.Organisation.Organisationid != 0)
+       {
+    <input type="submit" value="Edit Organisation" class="btn btn-default" />
+         @Html.ActionLink("Delete", "DeleteOrganisation", "Admin", new { ID = Model.Organisation.Organisationid, @class = "btn btn-default" })
+
+       }
+       else
+       {
+           <input type="submit" value="Add Organisation" class="btn btn-default" />
+       }
+}
+    
+        @Html.ActionLink("Cancel", "Index", "Admin", new { @class = "btn btn-default" })
+
+    
+    @Html.ValidationSummary("There has been an issue adding your organisation", new { @class = "alert alert-danger" });
+
+    @Html.HiddenFor(x => x.Organisation.Organisationid);
+    
+    
+  <div class="form-group">    
+    @Html.LabelFor(x => x.Organisation.Name);
+    @Html.TextBoxFor(x => x.Organisation.Name, new { @class = "form-control" });
+ </div>
+     <div class="form-group"> 
+    @Html.LabelFor(x => x.Organisation.Description);
+    @Html.TextAreaFor(x => x.Organisation.Description, new { @class = "form-control" });
+</div>
+        
+        
    
  
 }
