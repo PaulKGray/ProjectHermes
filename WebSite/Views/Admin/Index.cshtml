@@ -79,28 +79,25 @@
                 </thead>
 
                 @foreach (var item in Model.Attractions)
-                {
-                    <tr>
-                        <td class="title">
-                            @item.Name
-                        </td>
-                        <td>
-                            @item.Description
+{
+    <tr>
+        <td class="title">
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+
+        </td>
+        <td>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditAttraction", "Attraction", new { ID = item.Attrationid }, null)
+        </td>
+
+    </tr>
 
 
-
-
-
-
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "EditAttraction", "Admin", new { ID = item.Attrationid }, null)
-                        </td>
-
-                    </tr>
-
-
-                }
+}
             </table>
 
            }}
@@ -118,7 +115,7 @@
             Manage the items on your site.
         </p>
 
-        @Html.ActionLink("Add Attraction", "EditAttraction/0", "Admin", new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Attraction", "EditAttraction/0", "Attraction", null, new { @class = "btn btn-default" })
 
         @Html.ActionLink("Add Place", "EditPlace/0", "Place", null, new { @class = "btn btn-default" })
 

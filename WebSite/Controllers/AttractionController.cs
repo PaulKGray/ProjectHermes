@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using ProjectHermes.Models.Admin;
 using ProjectHermes.Services.Interfaces;
 using ProjectHermes.Services.ServiceModels;
+using ProjectHermes.Controllers.Actionfilters;
 namespace ProjectHermes.Controllers
 {
     public class AttractionController : Controller
@@ -31,11 +32,14 @@ namespace ProjectHermes.Controllers
         public ActionResult EditAttraction(int id) {
 
             AttractionAdministration attractionEdit = new AttractionAdministration();
-            attractionEdit.Places = PlaceService.GetAllPlace();
+            attractionEdit.Places = GetPlaceSelectList();
 
-            if (id!=0)
+            if (id != 0)
             {
                 attractionEdit.Attraction = AttractionService.GetAttraction(id);
+            }
+            else {
+                attractionEdit.Attraction = new AttractionModel();
             }
 
 
@@ -51,6 +55,9 @@ namespace ProjectHermes.Controllers
             if (ModelState.IsValid)
             {
 
+                var selectedplace = PlaceService.GetPlace(model.SelectedPlace);
+                model.Attraction.place = selectedplace;
+
                 if (model.Attraction.Attrationid == 0)
                 {
                     AttractionService.CreateAttraction(model.Attraction);
@@ -64,10 +71,37 @@ namespace ProjectHermes.Controllers
 
             }
 
-            model.Places = PlaceService.GetAllPlace();
+            model.Places = GetPlaceSelectList();
 
             return View(model);
         }
 
-    }
+        private SelectList GetPlaceSelectList() {
+
+            var places = PlaceService.GetAllPlace();
+
+
+
+            var selectPlaces = new SelectList(places, "PlaceId", "PlaceName");
+            
+            
+
+            return selectPlaces;
+
+        }
+
+        
+		[Authorize(Roles = "Administrator")]
+		[Transaction]
+		[HttpGet]
+		public ActionResult DeleteAttraction(int id)
+		{
+
+			AttractionService.DeleteAttraction(id);
+
+			return RedirectToAction("Index");
+		}
+
+	}
+    
 }

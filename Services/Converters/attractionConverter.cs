@@ -37,7 +37,13 @@ namespace ProjectHermes.Services.Converters
         public AttractionModel ConvertFromDomain(Attraction domain)
         {
             placeConverter = new PlaceConverter();
-            var attractionModel = new AttractionModel(placeConverter.ConvertFromDomain(domain.AttractionPlace));
+            var attractionModel = new AttractionModel();
+                
+            if (domain.AttractionPlace !=null)
+	        {
+		        attractionModel.place = placeConverter.ConvertFromDomain(domain.AttractionPlace);
+            }
+            
             attractionModel.Attrationid = domain.AttractionId;
             attractionModel.Name = domain.Name;
             attractionModel.Description = domain.Description;

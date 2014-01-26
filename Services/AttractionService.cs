@@ -25,16 +25,16 @@ namespace ProjectHermes.Services
 
         public AttractionModel CreateAttraction(AttractionModel attraction)
         {
-            if (Validator.TryValidateObject(attraction, vc, validationResults, true))
-            {
+            //if (Validator.TryValidateObject(attraction, vc, validationResults, true))
+            //{
                 var attractionDomain = attractionConverter.ConvertToDomain(attraction);
                 attractionDomain = _ParentRepository.Add(attractionDomain);
                 attraction = attractionConverter.ConvertFromDomain(attractionDomain);
-            }
-            else
-            {
-                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
-            }
+            //}
+            //else
+            //{
+            //    throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            //}
             return attraction;
         }
 

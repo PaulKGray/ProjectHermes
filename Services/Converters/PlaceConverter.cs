@@ -38,7 +38,6 @@ namespace ProjectHermes.Services.Converters
             placeModel.PlaceDescription = domain.PlaceDescription;
             placeModel.Latitude = domain.Latitude;
             placeModel.Longitude = domain.Longitude;
-
             placeModel.Attractions = attractionConverter.ConvertFromDomains(domain.PlaceAttraction);
             return placeModel;
         }

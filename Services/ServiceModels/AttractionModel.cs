@@ -28,10 +28,6 @@ namespace ProjectHermes.Services.ServiceModels
         { 
         }
 
-        public AttractionModel(PlaceModel place)
-        {
-            this.place = place;
-        }
 
       
     }
