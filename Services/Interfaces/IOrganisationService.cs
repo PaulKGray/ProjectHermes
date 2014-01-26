@@ -4,12 +4,12 @@ using ProjectHermes.Services.ServiceModels;
 using System.Collections.Generic;
 namespace ProjectHermes.Services.Interfaces
 {
-    public interface IOrganisationService
+    public interface IAttractionService
     {
-        OrganisationModel CreateOrganisation(OrganisationModel organisation);
-        OrganisationModel GetOrganisation(int organisationId);
-        void SaveOrganisation(OrganisationModel organisation);
-        IList<OrganisationModel> GetAllOrganisation();
-		void DeleteOrganisation(int id);
+        AttractionModel CreateAttraction(AttractionModel attraction);
+        AttractionModel GetAttraction(int attractionId);
+        void SaveAttraction(AttractionModel attraction);
+        IList<AttractionModel> GetAllAttractions();
+		void DeleteAttraction(int id);
     }
 }

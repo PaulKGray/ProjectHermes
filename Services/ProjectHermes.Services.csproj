@@ -67,16 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\IConverter.cs" />
-    <Compile Include="Converters\OrganisationConverter.cs" />
+    <Compile Include="Converters\AttractionConverter.cs" />
     <Compile Include="Converters\PlaceConverter.cs" />
     <Compile Include="Interfaces\IPlaceService.cs" />
-    <Compile Include="OrganisationService.cs" />
+    <Compile Include="AttractionService.cs" />
     <Compile Include="Interfaces\IOrganisationService.cs" />
     <Compile Include="PlaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrations\NinjectModule.cs" />
     <Compile Include="Registrations\Services.cs" />
-    <Compile Include="ServiceModels\OrganisationModel.cs" />
+    <Compile Include="ServiceModels\AttractionModel.cs" />
     <Compile Include="ServiceModels\PlaceModel.cs" />
   </ItemGroup>
   <ItemGroup>

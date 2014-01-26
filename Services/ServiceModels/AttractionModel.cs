@@ -8,11 +8,11 @@ using ProjectHermes.Domain;
 
 namespace ProjectHermes.Services.ServiceModels
 {
-    public class OrganisationModel
+    public class AttractionModel
     {
-	    public int Organisationid { get; set; }
+	    public int Attrationid { get; set; }
 
-        [DisplayName("Organisation Name")]
+        [DisplayName("Attraction Name")]
         [StringLength(160)]
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
@@ -24,11 +24,11 @@ namespace ProjectHermes.Services.ServiceModels
 
         public PlaceModel place {get; set;}
 
-        public OrganisationModel()
+        public AttractionModel()
         { 
         }
 
-        public OrganisationModel(PlaceModel place)
+        public AttractionModel(PlaceModel place)
         {
             this.place = place;
         }

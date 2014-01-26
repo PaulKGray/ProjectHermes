@@ -20,7 +20,7 @@ namespace ProjectHermes.Services.Registrations
             
             // services
             
-            kernel.Bind<IOrganisationService>().To<OrganisationService>();
+            kernel.Bind<IAttractionService>().To<AttractionService>();
             kernel.Bind<IPlaceService>().To<PlaceService>();
 
 

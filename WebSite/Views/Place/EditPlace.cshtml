@@ -13,11 +13,49 @@ else
 <h2>Add Place</h2>
 }
 
-@Html.BeginForm("editPlace", "place",  FormMethod.Post ){
+@using(Html.BeginForm("editPlace", "place",  FormMethod.Post )){
 
-    @Html.ValidationSummary();
-
-
+    <div class="well">
     
+     @{ if (Model.place.PlaceId != 0)
+       {
+<input type="submit" value="Edit Place" class="btn btn-default" />
+@Html.ActionLink("Delete", "DeletePlace", "Place", new { id = Model.place.PlaceId }, new { @class = "btn btn-default" })
+
+       }
+       else
+       {
+<input type="submit" value="Add Place" class="btn btn-default" />
+       }
 }
+@Html.ActionLink("Cancel", "Index", "Admin", null, new { @class = "btn btn-default" })
+
+        </div>
+
+    @Html.HiddenFor(x=>x.place.PlaceId)
+    
+    @Html.ValidationSummary("", new { @class = "alert alert-danger" });
+
+    <div class="form-group">
+        @Html.LabelFor(x=>x.place.PlaceName)
+        @Html.TextBoxFor(x => x.place.PlaceName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x=>x.place.PlaceDescription)
+        @Html.TextAreaFor(x => x.place.PlaceDescription, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x=>x.place.Latitude)
+        @Html.TextAreaFor(x => x.place.Latitude, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x=>x.place.Longitude)
+        @Html.TextAreaFor(x => x.place.Longitude, new { @class = "form-control" })
+    </div>
+
+
+    }
 

@@ -8,7 +8,9 @@ namespace ProjectHermes.Domain
         public virtual int PlaceID { get; set; }
         public virtual string PlaceName { get; set; }
         public virtual string PlaceDescription { get; set; }
-        public virtual IList<Organisation> PlaceOrganisation { get; set; }
+        public virtual IList<Attraction> PlaceAttraction { get; set; }
+        public virtual decimal Latitude {get;set;}
+        public virtual decimal Longitude { get; set; }
 
 
         protected Place() { }
@@ -16,7 +18,7 @@ namespace ProjectHermes.Domain
         public Place(string placeName)
         {
             this.PlaceName = placeName;
-            this.PlaceOrganisation = new List<Organisation>();
+            this.PlaceAttraction = new List<Attraction>();
         }
 
     }

@@ -8,7 +8,7 @@ namespace ProjectHermes.Domain
     {
         public virtual int CategoryId { get; set; }
         public virtual string CategoryName { get; set; }
-        public virtual IList<OrganisationCategories> OrganisationCategories { get; set; }
+        public virtual IList<AttractionCategories> AttractionCategories { get; set; }
 
         protected Category() { 
         
@@ -17,7 +17,7 @@ namespace ProjectHermes.Domain
         public Category(string name){
 
             this.CategoryName = name;
-            OrganisationCategories = new List<OrganisationCategories>();
+            AttractionCategories = new List<AttractionCategories>();
         }
 
  

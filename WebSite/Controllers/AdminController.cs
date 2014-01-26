@@ -15,13 +15,13 @@ namespace ProjectHermes.Controllers
 		//
 		// GET: /Admin/
 
-		private IOrganisationService _OrganisationService;
-        private IPlaceService _PlaceService;
+		private IAttractionService AttractionService;
+        private IPlaceService PlaceService;
 
-		public AdminController(IOrganisationService organisationService, IPlaceService placeService)
+		public AdminController(IAttractionService attractionService, IPlaceService placeService)
 		{
-			_OrganisationService = organisationService;
-            _PlaceService = placeService;
+			AttractionService = attractionService;
+            PlaceService = placeService;
 		}
 
 		[Authorize(Roles = "Administrator")]
@@ -38,12 +38,12 @@ namespace ProjectHermes.Controllers
 		{
 			var adminModel = new AdminModel();
 
-			var organisations = _OrganisationService.GetAllOrganisation();
+			var attractions = AttractionService.GetAllAttractions();
 
-            var places = _PlaceService.GetAllPlace();
+            var places = PlaceService.GetAllPlace();
 
             adminModel.Places = places;
-            adminModel.Organisations = organisations;
+            adminModel.Attractions = attractions;
 
 			return adminModel;
 
@@ -53,35 +53,29 @@ namespace ProjectHermes.Controllers
 		
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
-		public ActionResult EditOrganisation(int id)
+		public ActionResult EditAttraction(int id)
 		{
-            OrganisationAdministration organisation = new OrganisationAdministration();
-            organisation.Places = _PlaceService.GetAllPlace();
+            AttractionAdministration attraction = new AttractionAdministration();
+            attraction.Places = PlaceService.GetAllPlace();
             if (id == 0)
             {
-                organisation.Organisation = new OrganisationModel();
+                attraction.Attraction = new AttractionModel();
             }
             else {
-                organisation.Organisation = _OrganisationService.GetOrganisation(id);
+                attraction.Attraction = AttractionService.GetAttraction(id);
             }
             
-            return View(organisation);
+            return View(attraction);
 		}
 
 		[Authorize(Roles = "Administrator")]
 		[Transaction]
 		[HttpPost]
-		public ActionResult EditOrganisation(OrganisationAdministration item)
+		public ActionResult EditAttraction(AttractionAdministration item)
 		{
 			if (ModelState.IsValid)
 			{
 
-                //var Organisation = new Organisation(item.Name, item.place);
-                //Organisation.Name = item.Name;
-                //Organisation.Description = item.Description;
-                //Organisation.Organisationid = item.Organisationid;
-
-                //_OrganisationService.SaveOrganisation(Organisation);
 
 				return RedirectToAction("Index");
 			}
@@ -92,10 +86,10 @@ namespace ProjectHermes.Controllers
 		[Authorize(Roles = "Administrator")]
 		[Transaction]
 		[HttpGet]
-		public ActionResult DeleteOrganisation(int id)
+		public ActionResult DeleteAttraction(int id)
 		{
 
-			_OrganisationService.DeleteOrganisation(id);
+			AttractionService.DeleteAttraction(id);
 
 			return RedirectToAction("Index");
 		}

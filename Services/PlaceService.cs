@@ -20,23 +20,25 @@ namespace ProjectHermes.Services
         {
             placeRepository = repository;
             placeConverter = new PlaceConverter();
+            vc = new ValidationContext(new PlaceModel(), null, null);
         }
 
         public PlaceModel CreatePlace(PlaceModel place)
         {
 
-            if (Validator.TryValidateObject(place, vc, validationResults, true))
-            {
+            // ToDo: need to figure out validation something about vc type 
+            //if (Validator.TryValidateObject(place, vc, validationResults, true))
+            //{
 
                 var placeDomain = placeConverter.ConvertToDomain(place);
                 placeDomain = placeRepository.Add(placeDomain);
 
                 place = placeConverter.ConvertFromDomain(placeDomain);
 
-            } else {
+            ///} else {
 
-                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
-            }
+               // throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            //}
 
             return place;
             
@@ -53,17 +55,17 @@ namespace ProjectHermes.Services
         public void SavePlace(PlaceModel place)
         {
 
-
-            if (Validator.TryValidateObject(place, vc, validationResults, true))
-            {
+            //ToDo: need to figure out vc issue
+            //if (Validator.TryValidateObject(place, vc, validationResults, true))
+            //{
                 var placeDomain = placeConverter.ConvertToDomain(place);
                 placeRepository.Update(placeDomain);
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
-            }
+              //  throw new ArgumentException("Create Place could not create a place invalid arguments were sent");
+            //}
 
         }
 

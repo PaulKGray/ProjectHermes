@@ -12,18 +12,28 @@ namespace ProjectHermes.Services.ServiceModels
         public int PlaceId { get; set; }
 
         [DisplayName("Place Name")]
-        [Required]
+        [Required(ErrorMessage = "A place must have a name")]
         public string PlaceName { get; set; }
 
         [DisplayName("Place Descrition")]
-        [Required]
+        [Required(ErrorMessage = "A place needs a description")]
         public string PlaceDescription { get; set; }
 
-        public IList<OrganisationModel> Organisations { get; set; }
+        [DisplayName("Latitude")]
+        [Required(ErrorMessage = "A place needs a latitude")]
+        [Range(-90, 90, ErrorMessage = "Latitude degrees must be between {1} and {2}")]
+        public decimal Latitude { get; set; }
+
+        [DisplayName("Longitude")]
+        [Required(ErrorMessage = "A place needs a Longitude")]
+        [Range(-180, 180, ErrorMessage = "Longitude degrees must be between {1} and {2}")]
+        public decimal Longitude { get; set; }
+
+        public IList<AttractionModel> Attractions { get; set; }
 
         public PlaceModel()
         {
-            Organisations = new List<OrganisationModel>();
+            Attractions = new List<AttractionModel>();
         }
     }
 }

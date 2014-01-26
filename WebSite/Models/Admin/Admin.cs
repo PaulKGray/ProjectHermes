@@ -9,21 +9,21 @@ namespace ProjectHermes.Models.Admin
     public class AdminModel
     {
 
-		public IList<OrganisationModel> Organisations { get; set; }
+		public IList<AttractionModel> Attractions { get; set; }
 
         public IList<PlaceModel> Places { get; set; }
 
         public AdminModel()
         {
             this.Places = new List<PlaceModel>();
-			this.Organisations = new List<OrganisationModel>();
+			this.Attractions = new List<AttractionModel>();
         }
 
     }
 
     public class AdminCreateModel {
 
-        public OrganisationModel Organisation { get; set; }
+        public AttractionModel Attraction { get; set; }
  
 
         public AdminCreateModel()

@@ -11,7 +11,10 @@ namespace ProjectHermes.Repository.Mappings
             Table("Place");
             Id(x => x.PlaceID);
             Map(x => x.PlaceName);
-            HasMany(x => x.PlaceOrganisation).Cascade.All().KeyColumns.Add("Place_Id");
+            Map(x => x.PlaceDescription);
+            Map(x => x.Latitude);
+            Map(x => x.Longitude);
+            HasMany(x => x.PlaceAttraction).Cascade.All().KeyColumns.Add("Place_Id");
         }
     }
 }

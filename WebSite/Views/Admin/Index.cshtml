@@ -1,75 +1,132 @@
 ﻿@model ProjectHermes.Models.Admin.AdminModel
- 
 
 
-<div class="col-xs-12 col-sm-9">
+<div class="col-xs-12 col-sm-8">
 
-   <h2>Organisations</h2>
+        <h2>Places</h2>
 
-    @{ if (Model.Organisations.Count == 0)
- {
+        @if (Model.Places.Count == 0)
+        {
 
-    <p class="well">Sorry no organisations have been added</p>
+            <p>No places have been added</p>
 
- }
- else
- {
+        }
+        else
+        {
 
+            <table class="table">
 
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Desciption</th>
+                        <th>Controls</th>
+                    </tr>
 
-        <table class="layout display responsive-table">
+                </thead>
 
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Desciption</th>
-                    <th>Controls</th>
-                </tr>
+                @foreach (var item in Model.Places)
+                {
+                    <tr>
+                        <td>
+                            @item.PlaceName
+                        </td>
+                        <td>
+                            @item.PlaceDescription
 
-            </thead>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPlace", "Place", new { id = item.PlaceId }, new { @class = "btn btn-default" })
+                        </td>
 
-            @foreach (var item in Model.Organisations)
-            {
-                <tr>
-                    <td class="title">
-                        @item.Name
-                    </td>
-                    <td>
-                        @item.Description
-
-                       
-
-                    
-
-
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditOrganisation", "Admin", new { ID = item.Organisationid }, null)
-                    </td>
-
-                </tr>
+                    </tr>
 
 
-            }
-        </table>
+                }
+            </table>
 
-     }}
+
+
+
+        }
+
+
+    <div class="well">
+
+
+
+
+        <h2>Attractions</h2>
+
+        @{ if (Model.Attractions.Count == 0)
+         {
+
+            <p>Sorry no attractions have been added</p>
+
+         }
+           else
+           {
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Desciption</th>
+                        <th>Controls</th>
+                    </tr>
+
+                </thead>
+
+                @foreach (var item in Model.Attractions)
+                {
+                    <tr>
+                        <td class="title">
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Description
+
+
+
+
+
+
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditAttraction", "Admin", new { ID = item.Attrationid }, null)
+                        </td>
+
+                    </tr>
+
+
+                }
+            </table>
+
+           }}
+
+    </div>
 
 </div>
 
 
 
-<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+<div class="col-xs-12 col-sm-4 sidebar-offcanvas" id="sidebar">
 
-    <p class="bigText">
-        Manage the items on your site.
-    </p>
+    <div class="well">
+        <p class="bigText">
+            Manage the items on your site.
+        </p>
 
-    @Html.ActionLink("Add Organisation", "EditOrganisation/0", "Admin", new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Attraction", "EditAttraction/0", "Admin", new { @class = "btn btn-default" })
 
-    @Html.ActionLink("Add Place", "EditPlace/0", "Place", null , new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Place", "EditPlace/0", "Place", null, new { @class = "btn btn-default" })
 
-    @TempData["Message"]
+        @TempData["Message"]
+
+    </div>
+
+
 
 
 </div>

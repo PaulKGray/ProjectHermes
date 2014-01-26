@@ -11,7 +11,7 @@ namespace ProjectHermes.Repository.Mappings
             Table("Category");
             Id(x => x.CategoryId);
             Map(x => x.CategoryName);
-            HasMany(x => x.OrganisationCategories).Cascade.All().KeyColumns.Add("Category_id");
+            HasMany(x => x.AttractionCategories).Cascade.All().KeyColumns.Add("Category_id");
           
             
         }

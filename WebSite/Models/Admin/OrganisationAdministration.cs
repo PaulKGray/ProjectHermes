@@ -6,10 +6,10 @@ using ProjectHermes.Services.ServiceModels;
 
 namespace ProjectHermes.Models.Admin
 {
-    public class OrganisationAdministration
+    public class AttractionAdministration
     {
 
-        public OrganisationModel Organisation { get; set; }
+        public AttractionModel Attraction { get; set; }
         public IList<PlaceModel> Places { get; set; }
 
     }

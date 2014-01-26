@@ -11,7 +11,7 @@ angular.module('MobileApp.components', [])
 				item: '=parentdetails'
 
 			},
-			ProjectHermesUrl: '/partials/organisation/details.html'
+			ProjectHermesUrl: '/partials/attraction/details.html'
 
 		}
 

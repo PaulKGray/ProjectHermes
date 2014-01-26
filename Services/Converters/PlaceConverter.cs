@@ -7,7 +7,7 @@ namespace ProjectHermes.Services.Converters
     public class PlaceConverter : IConverter<Place,PlaceModel>
     {
 
-        private IConverter<Organisation, OrganisationModel> organisationConverter;
+        private IConverter<Attraction, AttractionModel> attractionConverter;
 
         public PlaceConverter()
         {
@@ -16,11 +16,14 @@ namespace ProjectHermes.Services.Converters
 
         public Place ConvertToDomain(PlaceModel model)
         {
-            organisationConverter = new OrganisationConverter();
+            attractionConverter = new AttractionConverter();
             var place = new Place(model.PlaceName);
             place.PlaceID = model.PlaceId;
             place.PlaceDescription = model.PlaceDescription;
-            place.PlaceOrganisation = organisationConverter.ConvertToDomains(model.Organisations);
+            place.Latitude = model.Latitude;
+            place.Longitude = model.Longitude;
+
+            place.PlaceAttraction = attractionConverter.ConvertToDomains(model.Attractions);
 
             return place;
 
@@ -28,11 +31,15 @@ namespace ProjectHermes.Services.Converters
 
         public PlaceModel ConvertFromDomain(Place domain)
         {
-            organisationConverter = new OrganisationConverter();
+            attractionConverter = new AttractionConverter();
             var placeModel = new PlaceModel();
+            placeModel.PlaceId = domain.PlaceID;
             placeModel.PlaceName = domain.PlaceName;
             placeModel.PlaceDescription = domain.PlaceDescription;
-            placeModel.Organisations = organisationConverter.ConvertFromDomains(domain.PlaceOrganisation);
+            placeModel.Latitude = domain.Latitude;
+            placeModel.Longitude = domain.Longitude;
+
+            placeModel.Attractions = attractionConverter.ConvertFromDomains(domain.PlaceAttraction);
             return placeModel;
         }
 
